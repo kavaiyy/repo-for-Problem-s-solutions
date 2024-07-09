@@ -3,8 +3,8 @@
 // Problem #1 solution:
 //      Return true if parentheses are valid, otherwise - false.
 // - - - - - - - - - - - -
-function isParenthesesValid(s) {
 // isParenthesesValid = function(s) {
+function isParenthesesValid(s) {
 
     let res = true;
     let N = s.length-1;
