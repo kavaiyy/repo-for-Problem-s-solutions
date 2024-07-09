@@ -54,3 +54,55 @@ section {
 }
 /* --- Problem #1 ---------------------------------------------------- */
 /* ------------------------------- */
+
+
+.sudoku__input {
+	display: block;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	border: 1px solid black;
+}
+.sudoku__inputs-container {
+	display: inline-grid;
+	grid-template-columns: repeat(9, 1fr);
+	grid-template-rows: repeat(9, 1fr);
+	width: 250px;
+	height: 250px;
+/*	border: 1px solid black;*/
+/*	background-color: red;*/
+}
+/* row 3 horizontal line */
+.sudoku__i31, .sudoku__i32, .sudoku__i33, .sudoku__i34, .sudoku__i35, .sudoku__i36, .sudoku__i37, .sudoku__i38, .sudoku__i39 {
+	background-color: yellow;
+	border-bottom: 3px solid black;
+}
+/* row 6 horizontal line */
+.sudoku__i61, .sudoku__i62, .sudoku__i63, .sudoku__i64, .sudoku__i65, .sudoku__i66, .sudoku__i67, .sudoku__i68, .sudoku__i69 {
+	background-color: yellow;
+	border-bottom: 3px solid black;
+}
+/* col 3 vertical line */
+.sudoku__i13, .sudoku__i23, .sudoku__i33, .sudoku__i43, .sudoku__i53, .sudoku__i63, .sudoku__i73, .sudoku__i83, .sudoku__i93 {
+	background-color: lightseagreen;
+	border-right: 3px solid black;
+}
+/* col 6 vertical line */
+.sudoku__i16, .sudoku__i26, .sudoku__i36, .sudoku__i46, .sudoku__i56, .sudoku__i66, .sudoku__i76, .sudoku__i86, .sudoku__i96 {
+	background-color: lightseagreen;
+	border-right: 3px solid black;
+}
+
+
+
+
+/*.problem2__inputs-sudoku::focus {
+	border: none;
+}*/
+
+
+/*.sudoku-input {
+	border: 1px solid black;
+	width: 20px;
+	height: 20px;
+}*/
