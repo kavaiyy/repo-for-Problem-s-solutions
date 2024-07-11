@@ -77,20 +77,35 @@ section {
 	background-color: yellow;
 	border-bottom: 3px solid black;
 }
+.sudoku__i41, .sudoku__i42, .sudoku__i43, .sudoku__i44, .sudoku__i45, .sudoku__i46, .sudoku__i47, .sudoku__i48, .sudoku__i49 {
+	background-color: yellow;
+}
+
 /* row 6 horizontal line */
 .sudoku__i61, .sudoku__i62, .sudoku__i63, .sudoku__i64, .sudoku__i65, .sudoku__i66, .sudoku__i67, .sudoku__i68, .sudoku__i69 {
 	background-color: yellow;
 	border-bottom: 3px solid black;
 }
+.sudoku__i71, .sudoku__i72, .sudoku__i73, .sudoku__i74, .sudoku__i75, .sudoku__i76, .sudoku__i77, .sudoku__i78, .sudoku__i79 {
+	background-color: yellow;
+}
+
 /* col 3 vertical line */
 .sudoku__i13, .sudoku__i23, .sudoku__i33, .sudoku__i43, .sudoku__i53, .sudoku__i63, .sudoku__i73, .sudoku__i83, .sudoku__i93 {
 	background-color: lightseagreen;
 	border-right: 3px solid black;
 }
+.sudoku__i14, .sudoku__i24, .sudoku__i34, .sudoku__i44, .sudoku__i54, .sudoku__i64, .sudoku__i74, .sudoku__i84, .sudoku__i94 {
+	background-color: lightseagreen;
+}
+
 /* col 6 vertical line */
 .sudoku__i16, .sudoku__i26, .sudoku__i36, .sudoku__i46, .sudoku__i56, .sudoku__i66, .sudoku__i76, .sudoku__i86, .sudoku__i96 {
 	background-color: lightseagreen;
 	border-right: 3px solid black;
+}
+.sudoku__i17, .sudoku__i27, .sudoku__i37, .sudoku__i47, .sudoku__i57, .sudoku__i67, .sudoku__i77, .sudoku__i87, .sudoku__i97 {
+	background-color: lightseagreen;
 }
 
 
