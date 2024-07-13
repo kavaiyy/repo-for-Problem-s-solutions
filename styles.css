@@ -1,17 +1,55 @@
 /* --- COLORS ---------------------------------------------------- */
 /*	background-color: #FFFCC9; #7bae37; #92a143; #BFBD97; #807E65; #403F32; #E6E3B5; #B3B07B; #FFFEE3;*/
-/*  background-color: #f5f5f5; #7E7E7E; #d3d3d3; #cccccc; */
+/*  background-color: #f5f5f5; #7E7E7E; #d3d3d3; #cccccc;  #f0f0f0; */
 /* --- COLORS ---------------------------------------------------- */
 /* ------------------------------- */
+
+/* --- COLORS: light/dark theme ---------------------------------------------------- */
+/* Not good: */
+/*html {
+  filter: invert(1);
+}*/
+/* Not good: */
+:root {
+	--background-color-default: white;
+	--text-color: black;
+
+	--background-color-header: #b2b9b2;
+	--background-color-section_between: #f2f9f2;
+	--background-color-section_problem: #f0f0f0;
+
+	--accent-color: yellow;
+  
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+  	--background-color-default: #013220;
+	--text-color: white; /* rgb(250,250,250); */
+
+	--background-color-header: #010E09; /* #929992 rgb(250,250,250); */
+	--background-color-section_between: #4A635A;/*#71797E;*/
+	--background-color-section_problem: #333333; /* #666666*/
+
+	--accent-color: yellow;  /* #4A635A;  #5D7C71;*/
+
+  }
+}
+/* --- COLORS: light/dark theme ---------------------------------------------------- */
+/* ------------------------------- */
+body {
+	color: var(--text-color);
+	background-color: var(--background-color-default);
+}
 
 /* --- HEADER ---------------------------------------------------- */
 header {
 	text-align: center;
 	padding: 45px 0;
-	background-color: #b2b9b2;
+	background-color: var(--background-color-header);
 }
 h1 {
 	font-size: 70px;
+/*	color: red;*/
 }
 /* --- HEADER ---------------------------------------------------- */
 /* ------------------------------- */
@@ -20,10 +58,11 @@ h1 {
 section {
 	text-align: center;
 	padding: 100px 0;
+	background-color: var(--background-color-section_problem);
 }
 .section_between {
 	text-align: center;
-	background-color: #f2f9f2; 
+	background-color: var(--background-color-section_between); /* #f2f9f2 */ 
 /*	height: 100px;*/
 /*	padding: 50px 0px 50px 0px;*/
 	padding: 60px 0px;
@@ -52,6 +91,12 @@ section {
 .problem1__h3 {
 	font-weight: semibold;
 }
+
+
+.problem1__h2-accent-color {
+	color: var(--accent-color);
+}
+
 /* --- Problem #1 ---------------------------------------------------- */
 /* ------------------------------- */
 
@@ -63,6 +108,9 @@ section {
 	height: 100%;
 	border: 1px solid black;
 }
+.sudoku__input:focus {
+	outline: none;
+}
 .sudoku__inputs-container {
 	display: inline-grid;
 	grid-template-columns: repeat(9, 1fr);
@@ -72,52 +120,111 @@ section {
 /*	border: 1px solid black;*/
 /*	background-color: red;*/
 }
-/* row 3 horizontal line */
+
+
+/* Sudoku apearance: THICKER lines */
 .sudoku__i31, .sudoku__i32, .sudoku__i33, .sudoku__i34, .sudoku__i35, .sudoku__i36, .sudoku__i37, .sudoku__i38, .sudoku__i39 {
-	background-color: yellow;
-	border-bottom: 3px solid black;
+	border-bottom: 3px solid black; /* row 3 horizontal line */
 }
-.sudoku__i41, .sudoku__i42, .sudoku__i43, .sudoku__i44, .sudoku__i45, .sudoku__i46, .sudoku__i47, .sudoku__i48, .sudoku__i49 {
-	background-color: yellow;
+.sudoku__i61, .sudoku__i62, .sudoku__i63, .sudoku__i64, .sudoku__i65, .sudoku__i66, .sudoku__i67, .sudoku__i68, .sudoku__i69 {
+	border-bottom: 3px solid black; /* row 6 horizontal line */
+}
+.sudoku__i13, .sudoku__i23, .sudoku__i33, .sudoku__i43, .sudoku__i53, .sudoku__i63, .sudoku__i73, .sudoku__i83, .sudoku__i93 {
+	border-right: 3px solid black; /* col 3 vertical line */
+}
+.sudoku__i16, .sudoku__i26, .sudoku__i36, .sudoku__i46, .sudoku__i56, .sudoku__i66, .sudoku__i76, .sudoku__i86, .sudoku__i96 {
+	border-right: 3px solid black; /* col 6 vertical line */
 }
 
-/* row 6 horizontal line */
-.sudoku__i61, .sudoku__i62, .sudoku__i63, .sudoku__i64, .sudoku__i65, .sudoku__i66, .sudoku__i67, .sudoku__i68, .sudoku__i69 {
-	background-color: yellow;
-	border-bottom: 3px solid black;
-}
+
+/* ----------------------------------------------------- */
+/* color-scheme for sudoku: var1 */
+/*.sudoku__i31, .sudoku__i32, .sudoku__i33, .sudoku__i34, .sudoku__i35, .sudoku__i36, .sudoku__i37, .sudoku__i38, .sudoku__i39,
+.sudoku__i41, .sudoku__i42, .sudoku__i43, .sudoku__i44, .sudoku__i45, .sudoku__i46, .sudoku__i47, .sudoku__i48, .sudoku__i49,
+.sudoku__i61, .sudoku__i62, .sudoku__i63, .sudoku__i64, .sudoku__i65, .sudoku__i66, .sudoku__i67, .sudoku__i68, .sudoku__i69,
 .sudoku__i71, .sudoku__i72, .sudoku__i73, .sudoku__i74, .sudoku__i75, .sudoku__i76, .sudoku__i77, .sudoku__i78, .sudoku__i79 {
 	background-color: yellow;
 }
-
-/* col 3 vertical line */
-.sudoku__i13, .sudoku__i23, .sudoku__i33, .sudoku__i43, .sudoku__i53, .sudoku__i63, .sudoku__i73, .sudoku__i83, .sudoku__i93 {
-	background-color: lightseagreen;
-	border-right: 3px solid black;
-}
-.sudoku__i14, .sudoku__i24, .sudoku__i34, .sudoku__i44, .sudoku__i54, .sudoku__i64, .sudoku__i74, .sudoku__i84, .sudoku__i94 {
-	background-color: lightseagreen;
-}
-
-/* col 6 vertical line */
+.sudoku__i14, .sudoku__i24, .sudoku__i34, .sudoku__i44, .sudoku__i54, .sudoku__i64, .sudoku__i74, .sudoku__i84, .sudoku__i94,
+.sudoku__i13, .sudoku__i23, .sudoku__i33, .sudoku__i43, .sudoku__i53, .sudoku__i63, .sudoku__i73, .sudoku__i83, .sudoku__i93,
+.sudoku__i17, .sudoku__i27, .sudoku__i37, .sudoku__i47, .sudoku__i57, .sudoku__i67, .sudoku__i77, .sudoku__i87, .sudoku__i97,
 .sudoku__i16, .sudoku__i26, .sudoku__i36, .sudoku__i46, .sudoku__i56, .sudoku__i66, .sudoku__i76, .sudoku__i86, .sudoku__i96 {
 	background-color: lightseagreen;
-	border-right: 3px solid black;
+}*/
+/* color-scheme for sudoku: var1 */
+/* ----------------------------------------------------- */
+/* ----------------------------------------------------- */
+/* color-scheme for sudoku: var2 */
+/*.sudoku__i31, .sudoku__i32, .sudoku__i33, .sudoku__i34, .sudoku__i35, .sudoku__i36, .sudoku__i37, .sudoku__i38, .sudoku__i39,
+.sudoku__i41, .sudoku__i42, .sudoku__i43, .sudoku__i44, .sudoku__i45, .sudoku__i46, .sudoku__i47, .sudoku__i48, .sudoku__i49,
+.sudoku__i61, .sudoku__i62, .sudoku__i63, .sudoku__i64, .sudoku__i65, .sudoku__i66, .sudoku__i67, .sudoku__i68, .sudoku__i69,
+.sudoku__i71, .sudoku__i72, .sudoku__i73, .sudoku__i74, .sudoku__i75, .sudoku__i76, .sudoku__i77, .sudoku__i78, .sudoku__i79 {
+	background-color: yellow;
 }
-.sudoku__i17, .sudoku__i27, .sudoku__i37, .sudoku__i47, .sudoku__i57, .sudoku__i67, .sudoku__i77, .sudoku__i87, .sudoku__i97 {
+.sudoku__i14, .sudoku__i24, .sudoku__i34, .sudoku__i44, .sudoku__i54, .sudoku__i64, .sudoku__i74, .sudoku__i84, .sudoku__i94,
+.sudoku__i13, .sudoku__i23, .sudoku__i33, .sudoku__i43, .sudoku__i53, .sudoku__i63, .sudoku__i73, .sudoku__i83, .sudoku__i93,
+.sudoku__i17, .sudoku__i27, .sudoku__i37, .sudoku__i47, .sudoku__i57, .sudoku__i67, .sudoku__i77, .sudoku__i87, .sudoku__i97,
+.sudoku__i16, .sudoku__i26, .sudoku__i36, .sudoku__i46, .sudoku__i56, .sudoku__i66, .sudoku__i76, .sudoku__i86, .sudoku__i96 {
 	background-color: lightseagreen;
 }
-
-
-
-
-/*.problem2__inputs-sudoku::focus {
-	border: none;
+.sudoku__i11, .sudoku__i12, .sudoku__i21, .sudoku__i22, .sudoku__i51, .sudoku__i52, .sudoku__i81, .sudoku__i82, .sudoku__i91, .sudoku__i92 {
+	background-color: yellow;
+}
+.sudoku__i15, .sudoku__i25, .sudoku__i55, .sudoku__i85, .sudoku__i95 {
+	background-color: yellow;
+}
+.sudoku__i18, .sudoku__i19, .sudoku__i28, .sudoku__i29, .sudoku__i58, .sudoku__i59, .sudoku__i88, .sudoku__i89, .sudoku__i98, .sudoku__i99 {
+	background-color: yellow;
 }*/
-
-
-/*.sudoku-input {
-	border: 1px solid black;
-	width: 20px;
-	height: 20px;
+/* color-scheme for sudoku: var2 */
+/* ----------------------------------------------------- */
+/* ----------------------------------------------------- */
+/* color-scheme for sudoku: var3 */
+/*.sudoku__i31, .sudoku__i32, .sudoku__i33, .sudoku__i34, .sudoku__i35, .sudoku__i36, .sudoku__i37, .sudoku__i38, .sudoku__i39,
+.sudoku__i41, .sudoku__i42, .sudoku__i43, .sudoku__i44, .sudoku__i45, .sudoku__i46, .sudoku__i47, .sudoku__i48, .sudoku__i49,
+.sudoku__i61, .sudoku__i62, .sudoku__i63, .sudoku__i64, .sudoku__i65, .sudoku__i66, .sudoku__i67, .sudoku__i68, .sudoku__i69,
+.sudoku__i71, .sudoku__i72, .sudoku__i73, .sudoku__i74, .sudoku__i75, .sudoku__i76, .sudoku__i77, .sudoku__i78, .sudoku__i79 {
+	background-color: yellow;
+}
+.sudoku__i14, .sudoku__i24, .sudoku__i34, .sudoku__i44, .sudoku__i54, .sudoku__i64, .sudoku__i74, .sudoku__i84, .sudoku__i94,
+.sudoku__i13, .sudoku__i23, .sudoku__i33, .sudoku__i43, .sudoku__i53, .sudoku__i63, .sudoku__i73, .sudoku__i83, .sudoku__i93,
+.sudoku__i17, .sudoku__i27, .sudoku__i37, .sudoku__i47, .sudoku__i57, .sudoku__i67, .sudoku__i77, .sudoku__i87, .sudoku__i97,
+.sudoku__i16, .sudoku__i26, .sudoku__i36, .sudoku__i46, .sudoku__i56, .sudoku__i66, .sudoku__i76, .sudoku__i86, .sudoku__i96 {
+	background-color: lightseagreen;
+}
+.sudoku__i11, .sudoku__i12, .sudoku__i21, .sudoku__i22, .sudoku__i51, .sudoku__i52, .sudoku__i81, .sudoku__i82, .sudoku__i91, .sudoku__i92 {
+	background-color: yellow;
+}
+.sudoku__i15, .sudoku__i25, .sudoku__i55, .sudoku__i85, .sudoku__i95 {
+	background-color: yellow;
+}
+.sudoku__i18, .sudoku__i19, .sudoku__i28, .sudoku__i29, .sudoku__i58, .sudoku__i59, .sudoku__i88, .sudoku__i89, .sudoku__i98, .sudoku__i99 {
+	background-color: lightseagreen;
 }*/
+/* color-scheme for sudoku: var3 */
+/* ----------------------------------------------------- */
+
+/* ----------------------------------------------------- */
+/* color-scheme for sudoku: var4 chess */
+.sudoku__i11, .sudoku__i12, .sudoku__i13, .sudoku__i21, .sudoku__i22, .sudoku__i23, .sudoku__i31, .sudoku__i32, .sudoku__i33,
+.sudoku__i17, .sudoku__i18, .sudoku__i19, .sudoku__i27, .sudoku__i28, .sudoku__i29, .sudoku__i37, .sudoku__i38, .sudoku__i39,
+.sudoku__i71, .sudoku__i72, .sudoku__i73, .sudoku__i81, .sudoku__i82, .sudoku__i83, .sudoku__i91, .sudoku__i92, .sudoku__i93,
+.sudoku__i77, .sudoku__i78, .sudoku__i79, .sudoku__i87, .sudoku__i88, .sudoku__i89, .sudoku__i97, .sudoku__i98, .sudoku__i99 {
+	background-color:  lightseagreen;
+}
+.sudoku__i44, .sudoku__i45, .sudoku__i46, .sudoku__i54, .sudoku__i55, .sudoku__i56, .sudoku__i64, .sudoku__i65, .sudoku__i66 {
+	background-color: lightseagreen;
+}
+.sudoku__i14, .sudoku__i15, .sudoku__i16, .sudoku__i24, .sudoku__i25, .sudoku__i26, .sudoku__i34, .sudoku__i35, .sudoku__i36,
+.sudoku__i41, .sudoku__i42, .sudoku__i43, .sudoku__i51, .sudoku__i52, .sudoku__i53, .sudoku__i61, .sudoku__i62, .sudoku__i63,
+.sudoku__i74, .sudoku__i75, .sudoku__i76, .sudoku__i84, .sudoku__i85, .sudoku__i86, .sudoku__i94, .sudoku__i95, .sudoku__i96,
+.sudoku__i47, .sudoku__i48, .sudoku__i49, .sudoku__i57, .sudoku__i58, .sudoku__i59, .sudoku__i67, .sudoku__i68, .sudoku__i69 {
+	background-color: yellow;
+}
+/* color-scheme for sudoku: var4 chees */
+/* ----------------------------------------------------- */
+
+.problem2__button {
+	display: block;
+	margin: 25px auto;
+}

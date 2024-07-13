@@ -14,6 +14,7 @@
 
     <header>
         <h1>Just For Fun</h1>
+        <!-- <button id="theme-toggle">Сменить тему</button> -->
     </header>
 
     <section class="section_between">
@@ -22,7 +23,7 @@
 
     <section class="">
     
-        <h2 class="problem1__h2"><b>Problem:</b> check if input parentheses are valid. Implemented only for '(','[','{' parentheses.</h2>
+        <h2 class="problem1__h2"><b class="problem1__h2-accent-color">Problem:</b> check if input parentheses are valid. Implemented only for '(','[','{' parentheses.</h2>
         <label for="name">Input:</label>
         <input id="problem1__input-js-selector" type="text" required minlength="4" size="50"  placeholder="example: ({some text in parentheses})" />
         <button class="problem1__button" onclick="problem1_btnClick()">Run script</button>
@@ -41,7 +42,7 @@
     <!-- BLOCK SECTION 4 -->
     <section class="">
    
-        <h2 class="problem1__h2"><b>Problem:</b> check if either partily filled or completed sudoku is valid.</h2>
+        <h2 class="problem1__h2"><b class="problem1__h2-accent-color">Problem:</b> check if either partily filled or completed sudoku is valid.</h2>
         <!-- content #2 -->
         <div class="sudoku__inputs-container">
             <!-- row 1 -->
@@ -135,8 +136,9 @@
             <input class="sudoku__input sudoku__i98 js-sudoku__i98" type="text" maxlength="1" size="1" placeholder="" />
             <input class="sudoku__input sudoku__i99 js-sudoku__i99" type="text" maxlength="1" size="1" placeholder="" />
         </div>
-        
-
+        <button class="problem2__button" onclick="problem2_btnClick()">Run script</button>
+        <h3 class="problem1__h3"> Here goes the result: </h3>
+        <p class="problem1__output">  </p>
 
 
 <!--         <div class="sudoku__input sudoku__i11">
