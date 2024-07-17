@@ -57,3 +57,6 @@ function isParenthesesValid(s) {
 function test_function() {
     alert("hello")
 }
+
+
+console.log(isParenthesesValid("(){}["));
