@@ -44,14 +44,11 @@ function problem1_btnClick() {
 // - - - - - - - - - - - -
 // Problem2
 // - - - - - - - - - - - -
-
-//~ const problem2__inputTracker = document.getElementById('problem2__input-js-selector');
 const problem2__inputTracker = document.getElementsByClassName('js-selector-sudoku');
 const problem2__outputTracker = document.getElementsByClassName('problem2__output-js-selector')[0];
 
-
-
-function problem2__btnClick() {
+// Button 1: Validation of sudoku
+function problem2__Validation() {
 	// Definitions:
 	let res = false;
 	let true_message = "Sudoku is valid";
@@ -67,8 +64,73 @@ function problem2__btnClick() {
 	else problem2__outputTracker.textContent = false_message;
 
 };
-//~ sudoku__inputs-container
-//~ js-sudoku__i11
+
+// Button 2: Write in site Seed Sudoku
+function problem2__GenerateSeedSudoku() {
+	// Definitions:
+	let msg_wrong_symbols = "Symbols beside 1-9 are ignored";
+	
+	// Create seed sudoku:
+	var board = seedSudoku();
+	
+	// Write in numbers in sudoku on site:
+	writeInSudoku(board);
+	//~ return board;
+	};
+
+//~ const permute_i1 = document.getElementsByClassName('problem2__js-input-permutations_i1')[0];
+//~ const permute_j1 = document.getElementsByClassName('problem2__js-input-permutations_j1')[0];
+//~ const permute_i2 = document.getElementsByClassName('problem2__js-input-permutations_i2')[0];
+//~ const permute_j2 = document.getElementsByClassName('problem2__js-input-permutations_j2')[0];
+
+// Button 3: One not safe permutations (swap cell1 and cell2)
+function problem2__PermutateSudoku() {
+	// Definitions:
+	//~ let msg_wrong_symbols = "Symbols beside 1-9 are ignored";
+	let input_board = null; // input_board[0-8][0-8]
+
+	const i1 = Number(document.getElementsByClassName('problem2__js-input-permutations_i1')[0].value);
+	const j1 = Number(document.getElementsByClassName('problem2__js-input-permutations_j1')[0].value);
+	const i2 = Number(document.getElementsByClassName('problem2__js-input-permutations_i2')[0].value);
+	const j2 = Number(document.getElementsByClassName('problem2__js-input-permutations_j2')[0].value);
+	
+	// Create seed sudoku:
+	input_board = read_sudoku();
+	
+	// Change in sudoku: permutations between rows 4 and 5.
+	board = permutation(input_board, i1,j1, i2,j2);
+	
+	// Write in numbers in sudoku on site:
+	writeInSudoku(input_board);
+	};
+
+// Button 4: Safe permutation (swap row1 and row2)
+function problem2__PermutateSudokuRows() {
+	// Definitions:
+	//~ let msg_wrong_symbols = "Symbols beside 1-9 are ignored";
+	let Sudoku = null; // Sudoku[0-8][0-8]
+	const row1 = Number(document.getElementsByClassName('problem2__js-input-permutate_row1')[0].value);
+	const row2 = Number(document.getElementsByClassName('problem2__js-input-permutate_row2')[0].value);
+	//~ alert(document.getElementsByClassName('problem2__js-input-permutate_row1')[0]);
+	
+	// Create seed sudoku:
+	Sudoku = read_sudoku();
+	
+	// Make permutations over seed sudoku:
+	for (let j = 1; j < 10; j++)
+	{
+		permutation(Sudoku, row1,j, row2,j);
+	}
+	
+	// Write in numbers in sudoku on site:
+	writeInSudoku(Sudoku);
+	};
+
+
+
+// Functions:
+// 1. Read from the form sudoku.
+// 2. Write in the form sudoku.
 function read_sudoku() {
 	let board = create_array();
 	let msg_wrong_symbols = "Symbols beside 1-9 are ignored";
@@ -96,43 +158,18 @@ function writeInSudoku(board) {
 	};
 
 
-function problem2__writeInSeedSudoku() {
-	// Definitions:
-	let msg_wrong_symbols = "Symbols beside 1-9 are ignored";
-	
-	// Create seed sudoku:
-	var board = seedSudoku();
-	
-	// Write in numbers in sudoku on site:
-	writeInSudoku(board);
-	//~ return board;
-	};
 
-//~ const permute_i1 = document.getElementsByClassName('problem2__js-input-permutations_i1')[0];
-//~ const permute_j1 = document.getElementsByClassName('problem2__js-input-permutations_j1')[0];
-//~ const permute_i2 = document.getElementsByClassName('problem2__js-input-permutations_i2')[0];
-//~ const permute_j2 = document.getElementsByClassName('problem2__js-input-permutations_j2')[0];
 
-function problem2__PermutateSudoku() {
-	// Definitions:
-	//~ let msg_wrong_symbols = "Symbols beside 1-9 are ignored";
-	let input_board = null; // input_board[0-8][0-8]
 
-	const i1 = Number(document.getElementsByClassName('problem2__js-input-permutations_i1')[0].value);
-	const j1 = Number(document.getElementsByClassName('problem2__js-input-permutations_j1')[0].value);
-	const i2 = Number(document.getElementsByClassName('problem2__js-input-permutations_i2')[0].value);
-	const j2 = Number(document.getElementsByClassName('problem2__js-input-permutations_j2')[0].value);
-	
-	// Create seed sudoku:
-	input_board = read_sudoku();
-	
-	// Change in sudoku: permutations between rows 4 and 5.
-	board = permutation(input_board, i1,j1, i2,j2);
-	
-	// Write in numbers in sudoku on site:
-	writeInSudoku(input_board);
-	};
 
+
+
+
+
+
+
+
+// OLD code: to delete
 function problem2__PermutateSudoku_2() {
 	// Definitions:
 	//~ let msg_wrong_symbols = "Symbols beside 1-9 are ignored";
@@ -161,38 +198,6 @@ function problem2__PermutateSudoku_2() {
 	writeInSudoku(input_board);
 	//~ return board;
 	};
-
-function problem2__PermutateSudokuRows() {
-	// Definitions:
-	//~ let msg_wrong_symbols = "Symbols beside 1-9 are ignored";
-	let Sudoku = null; // Sudoku[0-8][0-8]
-	const row1 = Number(document.getElementsByClassName('problem2__js-input-permutate_row1')[0].value);
-	const row2 = Number(document.getElementsByClassName('problem2__js-input-permutate_row2')[0].value);
-	//~ alert(document.getElementsByClassName('problem2__js-input-permutate_row1')[0]);
-	
-	// Create seed sudoku:
-	Sudoku = read_sudoku();
-	
-	// Make permutations over seed sudoku:
-	for (let j = 1; j < 10; j++)
-	{
-		permutation(Sudoku, row1,j, row2,j);
-	}
-	
-	// Write in numbers in sudoku on site:
-	writeInSudoku(Sudoku);
-	};
-
-
-
-
-
-
-
-
-
-
-
 
 
 
