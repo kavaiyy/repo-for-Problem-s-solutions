@@ -14,6 +14,7 @@
 // - - - - - - - - - - - -
 // Problem1
 // - - - - - - - - - - - -
+
 const problem1__inputTracker = document.getElementById('problem1__input-js-selector');
 const problem1__outputTracker = document.getElementsByClassName('problem1__output-js-selector')[0];
 
@@ -86,31 +87,88 @@ function read_sudoku() {
 			};
 	return board;
 	};
-function create_array() {
-	let s = '.';
-	let array_2D = [
-	[s,s,s,s,s,s,s,s,s],
-	[s,s,s,s,s,s,s,s,s],
-	[s,s,s,s,s,s,s,s,s],
-	
-	[s,s,s,s,s,s,s,s,s],
-	[s,s,s,s,s,s,s,s,s],
-	[s,s,s,s,s,s,s,s,s],
-	
-	[s,s,s,s,s,s,s,s,s],
-	[s,s,s,s,s,s,s,s,s],
-	[s,s,s,s,s,s,s,s,s]
-	];
-	return array_2D;
+
+function writeInSudoku(board) {
+    for( let i = 0; i < 9; i++)
+		for( let j = 0; j < 9; j++) {
+			problem2__inputTracker[i*9 + j].value = board[i][j];
+			};
 	};
 
 
+function problem2__writeInSeedSudoku() {
+	// Definitions:
+	let msg_wrong_symbols = "Symbols beside 1-9 are ignored";
+	
+	// Create seed sudoku:
+	var board = seedSudoku();
+	
+	// Write in numbers in sudoku on site:
+	writeInSudoku(board);
+	//~ return board;
+	};
 
+const permute_i1 = document.getElementsByClassName('problem2__js-input-permutations_i1')[0];
+const permute_j1 = document.getElementsByClassName('problem2__js-input-permutations_j1')[0];
+const permute_i2 = document.getElementsByClassName('problem2__js-input-permutations_i2')[0];
+const permute_j2 = document.getElementsByClassName('problem2__js-input-permutations_j2')[0];
 
+function problem2__PermutateSudoku() {
+	// Definitions:
+	let msg_wrong_symbols = "Symbols beside 1-9 are ignored";
+	let input_board = null; // input_board[0-8][0-8]
+	let i1 = 0;
+	let j1 = 0;
+	let i2 = 0;
+	let j2 = 0;
+	// Create seed sudoku:
+	input_board = read_sudoku();
+	
+	// Make permutations over seed sudoku:
+	//~ board = permutation(board, 0,0, 8,8);
+	//~ alert(permute_i1.value);
+	
+	// No change in the end: permutations between quadrants.
+	i1 = Number(permute_i1.value);
+	j1 = Number(permute_j1.value);
+	i2 = Number(permute_i2.value);
+	j2 = Number(permute_j2.value);
+	// Change in sudoku: permutations between rows 4 and 5.
+	board = permutation(input_board, i1,j1, i2,j2);
+	//~ alert(board[0][0]);
+	// Write in numbers in sudoku on site:
+	writeInSudoku(input_board);
+	//~ return board;
+	};
 
+function problem2__PermutateSudoku_2() {
+	// Definitions:
+	let msg_wrong_symbols = "Symbols beside 1-9 are ignored";
+	let input_board = null; // input_board[0-8][0-8]
 
-
-
+	// Create seed sudoku:
+	input_board = read_sudoku();
+	
+	// Make permutations over seed sudoku:
+	//~ board = permutation(board, 0,0, 8,8);
+	//~ alert(board[0][0]);
+	
+	// No change in the end: permutations between quadrants.
+	//~ board = permutation(input_board, 7,3, 6,4);
+	//~ board = permutation(input_board, 7,1, 4,6);
+	//~ board = permutation(input_board, 7,1, 7,3);
+	//~ board = permutation(input_board, 6,4, 4,6);
+	
+	// Change in sudoku: permutations between rows 4 and 5.
+	board = permutation(input_board, 4,6, 5,6);
+	board = permutation(input_board, 4,9, 5,9);
+	//~ board = permutation(input_board, 7,1, 7,3);
+	//~ board = permutation(input_board, 6,4, 4,6);
+	//~ alert(board[0][0]);
+	// Write in numbers in sudoku on site:
+	writeInSudoku(input_board);
+	//~ return board;
+	};
 
 
 
