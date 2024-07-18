@@ -108,42 +108,34 @@ function problem2__writeInSeedSudoku() {
 	//~ return board;
 	};
 
-const permute_i1 = document.getElementsByClassName('problem2__js-input-permutations_i1')[0];
-const permute_j1 = document.getElementsByClassName('problem2__js-input-permutations_j1')[0];
-const permute_i2 = document.getElementsByClassName('problem2__js-input-permutations_i2')[0];
-const permute_j2 = document.getElementsByClassName('problem2__js-input-permutations_j2')[0];
+//~ const permute_i1 = document.getElementsByClassName('problem2__js-input-permutations_i1')[0];
+//~ const permute_j1 = document.getElementsByClassName('problem2__js-input-permutations_j1')[0];
+//~ const permute_i2 = document.getElementsByClassName('problem2__js-input-permutations_i2')[0];
+//~ const permute_j2 = document.getElementsByClassName('problem2__js-input-permutations_j2')[0];
 
 function problem2__PermutateSudoku() {
 	// Definitions:
-	let msg_wrong_symbols = "Symbols beside 1-9 are ignored";
+	//~ let msg_wrong_symbols = "Symbols beside 1-9 are ignored";
 	let input_board = null; // input_board[0-8][0-8]
-	let i1 = 0;
-	let j1 = 0;
-	let i2 = 0;
-	let j2 = 0;
+
+	const i1 = Number(document.getElementsByClassName('problem2__js-input-permutations_i1')[0].value);
+	const j1 = Number(document.getElementsByClassName('problem2__js-input-permutations_j1')[0].value);
+	const i2 = Number(document.getElementsByClassName('problem2__js-input-permutations_i2')[0].value);
+	const j2 = Number(document.getElementsByClassName('problem2__js-input-permutations_j2')[0].value);
+	
 	// Create seed sudoku:
 	input_board = read_sudoku();
 	
-	// Make permutations over seed sudoku:
-	//~ board = permutation(board, 0,0, 8,8);
-	//~ alert(permute_i1.value);
-	
-	// No change in the end: permutations between quadrants.
-	i1 = Number(permute_i1.value);
-	j1 = Number(permute_j1.value);
-	i2 = Number(permute_i2.value);
-	j2 = Number(permute_j2.value);
 	// Change in sudoku: permutations between rows 4 and 5.
 	board = permutation(input_board, i1,j1, i2,j2);
-	//~ alert(board[0][0]);
+	
 	// Write in numbers in sudoku on site:
 	writeInSudoku(input_board);
-	//~ return board;
 	};
 
 function problem2__PermutateSudoku_2() {
 	// Definitions:
-	let msg_wrong_symbols = "Symbols beside 1-9 are ignored";
+	//~ let msg_wrong_symbols = "Symbols beside 1-9 are ignored";
 	let input_board = null; // input_board[0-8][0-8]
 
 	// Create seed sudoku:
