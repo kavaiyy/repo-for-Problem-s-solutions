@@ -78,11 +78,6 @@ function problem2__GenerateSeedSudoku() {
 	//~ return board;
 	};
 
-//~ const permute_i1 = document.getElementsByClassName('problem2__js-input-permutations_i1')[0];
-//~ const permute_j1 = document.getElementsByClassName('problem2__js-input-permutations_j1')[0];
-//~ const permute_i2 = document.getElementsByClassName('problem2__js-input-permutations_i2')[0];
-//~ const permute_j2 = document.getElementsByClassName('problem2__js-input-permutations_j2')[0];
-
 // Button 3: One not safe permutations (swap cell1 and cell2)
 function problem2__PermutateSudoku() {
 	// Definitions:
