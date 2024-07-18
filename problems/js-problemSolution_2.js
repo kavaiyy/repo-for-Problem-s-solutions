@@ -43,7 +43,7 @@ function permutation(board, i1,j1, i2,j2) {
 	board[i1][j1] = board[i2][j2];
 	board[i2][j2] = str_buff;
 	//~ alert(str_buff);
-	return board;
+	return 0;
 	};
 
 var isValidSudoku = function(board) 

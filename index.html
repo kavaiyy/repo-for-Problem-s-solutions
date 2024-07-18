@@ -138,12 +138,22 @@
         </div>
         <button class="problem2__button problem2__input-js-selector" onclick="problem2__btnClick()">Validation</button>
         <button class="problem2__button problem2__input-js-selector" onclick="problem2__writeInSeedSudoku()">GenerateSeedSudoku</button>
+        
         <button class="problem2__button problem2__input-js-selector" onclick="problem2__PermutateSudoku()">Permutate</button>
+			<label>cell 1:</label>
             <input class="problem2__js-input-permutations_i1" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
             <input class="problem2__js-input-permutations_j1" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-			<label>space</label>
+			<label>cell 2:</label>
             <input class="problem2__js-input-permutations_i2" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
             <input class="problem2__js-input-permutations_j2" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+            
+        <button class="problem2__button problem2__input-js-selector" onclick="problem2__PermutateSudokuRows()">Permutate rows</button>
+			<label>row 1:</label>
+            <input class="problem2__js-input-permutate_row1" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+            <label>row 2:</label>
+            <input class="problem2__js-input-permutate_row2" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+            
+        <br>
         <h3 class="problem1__h3"> Here goes the result: </h3>
         <p class="problem2__output-js-selector">  </p>
 

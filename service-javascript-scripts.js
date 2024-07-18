@@ -170,7 +170,26 @@ function problem2__PermutateSudoku_2() {
 	//~ return board;
 	};
 
-
+function problem2__PermutateSudokuRows() {
+	// Definitions:
+	//~ let msg_wrong_symbols = "Symbols beside 1-9 are ignored";
+	let Sudoku = null; // Sudoku[0-8][0-8]
+	const row1 = Number(document.getElementsByClassName('problem2__js-input-permutate_row1')[0].value);
+	const row2 = Number(document.getElementsByClassName('problem2__js-input-permutate_row2')[0].value);
+	//~ alert(document.getElementsByClassName('problem2__js-input-permutate_row1')[0]);
+	
+	// Create seed sudoku:
+	Sudoku = read_sudoku();
+	
+	// Make permutations over seed sudoku:
+	for (let j = 1; j < 10; j++)
+	{
+		permutation(Sudoku, row1,j, row2,j);
+	}
+	
+	// Write in numbers in sudoku on site:
+	writeInSudoku(Sudoku);
+	};
 
 
 
