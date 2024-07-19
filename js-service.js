@@ -110,7 +110,54 @@ function problem2__PermutateSudokuRows() {
 	writeInSudoku(Sudoku);
 	};
 
+// Button 5: GenerateGameFrom_CompletedSudoku
+function problem2__GenerateGameFrom_CompletedSudoku() {
+	// Definitions:
+	let Sudoku = null; // Sudoku[0-8][0-8]
+	let cell = [0,0];
+	let ncellsToDelte = 64; // [0;64]
+	let DeletedCells = [];
+	//~ let DeletedCells_set = new Set();
+	let DeletedCells_map = new Map();
+	let hash_key = -1;
 
+	// Create seed sudoku:
+	Sudoku = seedSudoku();
+	
+	// Make permutations over seed sudoku:
+	for (k = 0; k < ncellsToDelte; k++)
+	{
+		do {
+			cell = getRandomCell();
+			hash_key = cell[0]*9+cell[1];
+		} while(DeletedCells_map.has(hash_key));
+		
+		// Check if sudoku have only one Solution.
+		
+		DeletedCells_map.set(hash_key, cell);
+	};
+	DeletedCells_map.forEach((aValue, aKey) => {
+		console.log(`${aKey} = ${aValue}`);
+		ChangeSudoku_DeleteElement(Sudoku, aValue[0],aValue[1]);
+	});	
+	
+	
+	//~ -------------------------------------------------
+	// Test of deletion of cells
+	//~ for (k = 0; k < ncellsToDelte; k++) {
+		//~ cell = [0,k];
+		//~ DeletedCells_map.set(k, cell);
+	//~ };
+	//~ DeletedCells_map.forEach((aValue, aKey) => {
+		//~ console.log(`${aKey} = ${aValue}`);
+		//~ ChangeSudoku_DeleteElement(Sudoku, aValue[0],aValue[1]);
+	//~ });
+	// Test of deletion of cells
+	//~ -------------------------------------------------
+	
+	// Write in numbers in sudoku on site:
+	writeInSudoku(Sudoku);
+	};
 
 // Functions:
 // 1. Read from the form sudoku.
@@ -124,12 +171,14 @@ function read_sudoku() {
 			if(input_str) {
 				inp_num = Number(input_str);
 				if(!inp_num) {
-					SudokuBoard[i][j]='.';
+					//~ SudokuBoard[i][j]='.';
+					SudokuBoard[i][j]=emptyCell; // emptyCell defined in js-problemSolution_2.js
 					alert(msg_wrong_symbols);
 					}
 				else SudokuBoard[i][j] = input_str;
 				};
 			};
+	console.log(SudokuBoard);
 	return SudokuBoard;
 	};
 
@@ -140,6 +189,15 @@ function writeInSudoku(SudokuBoard) {
 			};
 	};
 
+function getRandomCell() {
+	var getRandomInt =  function() {
+		//~ return Math.ceil(Math.random() * 8); // function: get random from 1 to 9
+		return Math.floor(Math.random() * 9);    // function: get random from 0 to 8
+		};
+	i = getRandomInt();
+	j = getRandomInt();
+	return [i,j]
+	};
 
 
 
