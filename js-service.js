@@ -55,7 +55,7 @@ function problem2__Validation() {
 	let false_message = "Sudoku is not valid";
 	let err_message1 = "Symbols beside 1-9 are ignored";
 	let Sudoku = null; // input_board[0-8][0-8]
-	Sudoku = read_sudoku();
+	Sudoku = readSudoku();
 	// algorithm:
 	res = isValidSudoku(Sudoku);
 	// Print out the result;
@@ -81,7 +81,7 @@ function problem2__PermutateSudoku() {
 	const j2 = Number(document.getElementsByClassName('problem2__js-input-permutations_j2')[0].value);
 	
 	// Create seed sudoku:
-	Sudoku = read_sudoku();
+	Sudoku = readSudoku();
 	
 	// Change in sudoku: permutations between rows 4 and 5.
 	permutation(Sudoku, i1,j1, i2,j2);
@@ -98,7 +98,7 @@ function problem2__PermutateSudokuRows() {
 	const row2 = Number(document.getElementsByClassName('problem2__js-input-permutate_row2')[0].value);
 	
 	// Create seed sudoku:
-	Sudoku = read_sudoku();
+	Sudoku = readSudoku();
 	
 	// Make permutations over seed sudoku:
 	for (let j = 1; j < 10; j++)
@@ -110,60 +110,123 @@ function problem2__PermutateSudokuRows() {
 	writeInSudoku(Sudoku);
 	};
 
-// Button 5: GenerateGameFrom_CompletedSudoku
-function problem2__GenerateGameFrom_CompletedSudoku() {
-	// Definitions:
-	let Sudoku = null; // Sudoku[0-8][0-8]
-	let cell = [0,0];
-	let ncellsToDelte = 64; // [0;64]
-	let DeletedCells = [];
-	//~ let DeletedCells_set = new Set();
-	let DeletedCells_map = new Map();
-	let hash_key = -1;
 
-	// Create seed sudoku:
-	Sudoku = seedSudoku();
-	
-	// Make permutations over seed sudoku:
-	for (k = 0; k < ncellsToDelte; k++)
-	{
-		do {
-			cell = getRandomCell();
-			hash_key = cell[0]*9+cell[1];
-		} while(DeletedCells_map.has(hash_key));
+var aCells = null;
+// Button 5: GenerateGameFrom_CompletedSudoku RecursiveCheck_forUniqnessOfSolution(Sudoku, Cells);
+function problem2__GenerateGameFrom_CompletedSudoku() {
+		// Definitions:
+		let Sudoku = null; // Sudoku[0-8][0-8]
+		let Cells = null;
+		let cell = [0,0];
+		let ncellsToDelte = 10; // [0;64] 8
+		let DeletedCells = [];
+		//~ let DeletedCells_set = new Set();
+		let DeletedCells_map = new Map();
+		let hash_key = -1;
+
+		// Create seed sudoku:
+		Sudoku = seedSudoku();
 		
-		// Check if sudoku have only one Solution.
-		//~ CheckIfOnlyOneSolution();
-		
+		// Make permutations over seed sudoku:
+		cell = getRandomCell();
+		hash_key = cell[0]*9+cell[1];
+		Cells = new ListNode( cell, Sudoku[cell[0]][cell[1]] );
+		aCells = Cells;
 		DeletedCells_map.set(hash_key, cell);
+		
+		for (k = 1; k < ncellsToDelte; k++)
+		{
+			do {
+				cell = getRandomCell();
+				hash_key = cell[0]*9+cell[1];
+			} while(DeletedCells_map.has(hash_key));
+			
+			// Check if sudoku have only one Solution.
+			//~ CheckIfOnlyOneSolution();
+			Cells.next = new ListNode( cell, Sudoku[cell[0]][cell[1]] );
+			Cells = Cells.next;
+			//~ RecursiveCheck_forUniqnessOfSolution(Sudoku, Cells);
+			
+			DeletedCells_map.set(hash_key, cell);
+		};
+		DeletedCells_map.forEach((aValue, aKey) => {
+			console.log(`${aKey} = ${aValue}`);
+			ChangeSudoku_DeleteElement(Sudoku, aValue[0],aValue[1]);
+		});	
+		
+		
+		//~ -------------------------------------------------
+		// Test of deletion of cells
+		//~ for (k = 0; k < ncellsToDelte; k++) {
+			//~ cell = [0,k];
+			//~ DeletedCells_map.set(k, cell);
+		//~ };
+		//~ DeletedCells_map.forEach((aValue, aKey) => {
+			//~ console.log(`${aKey} = ${aValue}`);
+			//~ ChangeSudoku_DeleteElement(Sudoku, aValue[0],aValue[1]);
+		//~ });
+		// Test of deletion of cells
+		//~ -------------------------------------------------
+		
+		// Write in numbers in sudoku on site:
+		writeInSudoku(Sudoku);
 	};
-	DeletedCells_map.forEach((aValue, aKey) => {
-		console.log(`${aKey} = ${aValue}`);
-		ChangeSudoku_DeleteElement(Sudoku, aValue[0],aValue[1]);
-	});	
-	
-	
-	//~ -------------------------------------------------
-	// Test of deletion of cells
-	//~ for (k = 0; k < ncellsToDelte; k++) {
-		//~ cell = [0,k];
-		//~ DeletedCells_map.set(k, cell);
-	//~ };
-	//~ DeletedCells_map.forEach((aValue, aKey) => {
-		//~ console.log(`${aKey} = ${aValue}`);
-		//~ ChangeSudoku_DeleteElement(Sudoku, aValue[0],aValue[1]);
-	//~ });
-	// Test of deletion of cells
-	//~ -------------------------------------------------
-	
-	// Write in numbers in sudoku on site:
-	writeInSudoku(Sudoku);
+
+// Button 6: 
+function problem2__CheckIfOneSolution() {
+		// Definitions:
+		let Sudoku = null; // Sudoku[0-8][0-8]
+		let Cells = null;
+		let cell = [0,0];
+		let ncellsToDelte = 3; // [0;64] 64
+		let DeletedCells = [];
+		//~ let DeletedCells_set = new Set();
+		let DeletedCells_map = new Map();
+		let hash_key = -1;
+
+		// Create seed sudoku:
+		Sudoku = readSudoku();
+		
+		// Make permutations over seed sudoku:
+		let i = 0;
+		Cells = aCells;
+		while (Cells && i<6)
+		{
+			i = i + 1;
+			console.log(Cells);
+			Cells = Cells.next;
+		}
+		
+		
+		let res = RecursiveCheck_forUniqnessOfSolution(Sudoku, aCells);
+		
+		console.log(res);
+		
+
+		// Write in numbers in sudoku on site:
+		//~ writeInSudoku(Sudoku);
 	};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Functions:
 // 1. Read from the form sudoku.
 // 2. Write in the form sudoku.
-function read_sudoku() {
+function readSudoku() {
 	let SudokuBoard = create_array();
 	let msg_wrong_symbols = "Symbols beside 1-9 are ignored";
     for( let i = 0; i < 9; i++)
@@ -179,7 +242,7 @@ function read_sudoku() {
 				else SudokuBoard[i][j] = input_str;
 				};
 			};
-	console.log(SudokuBoard);
+	//~ console.log(SudokuBoard);
 	return SudokuBoard;
 	};
 

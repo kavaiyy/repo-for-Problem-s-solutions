@@ -136,7 +136,7 @@ var isValidSudoku = function(board)
     };
 
 
-class Node {
+class ListNode {
   constructor(aCell, aDigit){
     this.cell = aCell;
     this.original_digit = aDigit;
@@ -151,11 +151,13 @@ class Node {
 // If var i = i+1 is not elegant.
 // 
 // In each call current_cell is saved.
+// 9**2=81, 9**3=729, 9**4=6561, 9**5=59049, 9**6=531441, 9**7=531441
+// 9**8=43046721, 9**9=387420489, 9**4=6561, 9**5=59049, 9**6=531441, 9**7=531441
 function RecursiveCheck_forUniqnessOfSolution(board, cells) {
 
 	// Definitions:
 	let digit = 1;
-	let current_cell = cells.pop();
+	let current_cell = cells;
 	let original_digit = current_cell.original_digit;
 	//~ code
 	for (digit = 1; digit < 10; digit++)
@@ -164,10 +166,11 @@ function RecursiveCheck_forUniqnessOfSolution(board, cells) {
 		if(cells.next)
 			RecursiveCheck_forUniqnessOfSolution(board, cells.next);
 		else { 	
-				isValidSudoku(board);};
+				if(isValidSudoku(board)) {
+					if(digit!=original_digit) return false};
+			};
 	};
-
-	return 0;
+	return true;
 	};
 	
 function CheckIfOnlyOneSolution(board, i_element, j_element) {
