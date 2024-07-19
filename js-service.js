@@ -133,6 +133,7 @@ function problem2__GenerateGameFrom_CompletedSudoku() {
 		} while(DeletedCells_map.has(hash_key));
 		
 		// Check if sudoku have only one Solution.
+		//~ CheckIfOnlyOneSolution();
 		
 		DeletedCells_map.set(hash_key, cell);
 	};

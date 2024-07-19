@@ -37,6 +37,17 @@ function create_array() {
 	return array_2D;
 	};
 
+function ChangeSudoku_DeleteElement(sudoku_board, i,j) {
+	let s = emptyCell;
+	sudoku_board[i][j] = s;
+	return 0;
+	};
+
+function ChangeSudoku_SetElement(sudoku_board, element, cell) {
+	sudoku_board[cell[0]][cell[1]] = element;
+	return 0;
+	};
+
 function permutation(board, i1,j1, i2,j2) {
 	let str_buff = '';
 	i1--;
@@ -49,6 +60,8 @@ function permutation(board, i1,j1, i2,j2) {
 	//~ alert(str_buff);
 	return 0;
 	};
+
+
 
 var isValidSudoku = function(board) 
     {
@@ -123,13 +136,51 @@ var isValidSudoku = function(board)
     };
 
 
-function ChangeSudoku_DeleteElement(sudoku_board, i,j) {
-	let s = emptyCell;
-	sudoku_board[i][j] = s;
+class Node {
+  constructor(aCell, aDigit){
+    this.cell = aCell;
+    this.original_digit = aDigit;
+    this.next = null;
+  }
+};
+
+
+// Board are always full.
+// cells are supplyied in form of lint to linked-list or Array. Need to follow which element is know.
+// If push pop then its changes in array which is not good.
+// If var i = i+1 is not elegant.
+// 
+// In each call current_cell is saved.
+function RecursiveCheck_forUniqnessOfSolution(board, cells) {
+
+	// Definitions:
+	let digit = 1;
+	let current_cell = cells.pop();
+	let original_digit = current_cell.original_digit;
+	//~ code
+	for (digit = 1; digit < 10; digit++)
+	{
+		ChangeSudoku_SetElement(board, digit, current_cell.cell);
+		if(cells.next)
+			RecursiveCheck_forUniqnessOfSolution(board, cells.next);
+		else { 	
+				isValidSudoku(board);};
+	};
+
 	return 0;
 	};
-function ChangeSudoku_AddElement(sudoku_board, element, i,j) {
-	sudoku_board[i][j] = element;
+	
+function CheckIfOnlyOneSolution(board, i_element, j_element) {
+
+	// Deginitions:
+	let set_numberList = new Set();
+	let res = true;
+	let i = 0;
+	let j = 0;
+
+	//~ code
+
+
 	return 0;
 	};
 
