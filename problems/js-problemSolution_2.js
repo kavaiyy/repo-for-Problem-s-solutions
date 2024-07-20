@@ -152,7 +152,7 @@ class ListNode {
 // 
 // In each call current_cell is saved.
 // 9**2=81, 9**3=729, 9**4=6561, 9**5=59049, 9**6=531441, 9**7=531441
-// 9**8=43046721, 9**9=387420489, 9**4=6561, 9**5=59049, 9**6=531441, 9**7=531441
+// 9**8 = 43 046 721, 9**9 = 387 420 489, 9**10 = 3 486 784 401
 function RecursiveCheck_forUniqnessOfSolution(board, cells) {
 
 	// Definitions:
