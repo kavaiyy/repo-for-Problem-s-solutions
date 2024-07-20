@@ -266,8 +266,30 @@ function getRandomCell() {
 
 
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// - - - - - - - - - - - -
+// Problem3
+// - - - - - - - - - - - -
 
-
-
+function RomanToInteger() {
+	// Definitions:
+	const RomanToInteger__inputTracker = document.getElementById('RomanToInteger__inputTracker-js');
+	const RomanToInteger__outputTracker = document.getElementsByClassName('RomanToInteger__outputTracker-js')[0];
+	let err_message1 = "In the input string there are not Roman symbols";
+	let res = "";
+	
+	// algorithm:
+	res = romanToInt(RomanToInteger__inputTracker.value);
+	
+	// Text out result;
+	if (res>0)
+	{
+		RomanToInteger__outputTracker.textContent = res;
+	}
+	else {
+		RomanToInteger__outputTracker.textContent = err_message1;
+	};	
+	
+};
 
 
