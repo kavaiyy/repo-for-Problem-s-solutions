@@ -43,23 +43,23 @@ function Interface_ValidationParantheses() {
 // - - - - - - - - - - - -
 function Interface_RomanToInteger() {
 	// Definitions:
-	const RomanToInteger__inputTracker = document.getElementById('RomanToInteger__inputTracker-js');
-	const RomanToInteger__outputTracker = document.getElementsByClassName('RomanToInteger__outputTracker-js')[0];
+	const inputTracker = document.getElementById('RomanToInteger__inputTracker-js');
+	const outputTracker = document.getElementsByClassName('RomanToInteger__outputTracker-js')[0];
 	let err_message1 = "In the input string there are not Roman symbols";
+	var regex = new RegExp("^[M,D,C,L,X,V,I]+$");
 	let res = "";
 	
+	let inp_str = inputTracker.value.trim();
+	
 	// algorithm:
-	res = romanToInt(RomanToInteger__inputTracker.value);
+	if(regex.test(inp_str)) {
+		res = romanToInt(inp_str);
+		}
+	else {
+		res = err_message1;}	
 	
 	// Text out result;
-	if (res>0)
-	{
-		RomanToInteger__outputTracker.textContent = res;
-	}
-	else {
-		RomanToInteger__outputTracker.textContent = err_message1;
-	};	
-	
+	outputTracker.textContent = res;
 };
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -70,24 +70,21 @@ function Interface_integerToRoman() {
 	// Definitions:
 	const inputTracker = document.getElementById('IntegerToRoman__inputTracker-js');
 	const outputTracker = document.getElementsByClassName('IntegerToRoman__outputTracker-js')[0];
-	let err_message1 = "In the input string there are not Roman symbols";
+	let err_message1 = "Input string contains not allowed symbols";
+	var regex = new RegExp("^[0-9]+$");
 	let res = "";
-	
+
+	let inp_str = inputTracker.value.trim();
+
 	// algorithm:
-	let inp_var = Number(inputTracker.value);
-	console.log(inp_var);
-	res = IntegerToRoman(inp_var);
+	if(regex.test(inp_str)) {
+		res = IntegerToRoman(Number(inp_str));
+		}
+	else {
+		res = err_message1;}
 	
 	// Text out result;
 	outputTracker.textContent = res;
-	//~ if (res>0)
-	//~ {
-		//~ RomanToInteger__outputTracker.textContent = res;
-	//~ }
-	//~ else {
-		//~ RomanToInteger__outputTracker.textContent = err_message1;
-	//~ };	
-	
 };
 
 
