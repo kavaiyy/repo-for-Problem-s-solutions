@@ -60,18 +60,15 @@ section {
 	padding: 100px 0;
 	background-color: var(--background-color-section_problem);
 }
-.section_between {
+.header__section {
 	text-align: center;
 	background-color: var(--background-color-section_between); /* #f2f9f2 */ 
 /*	height: 100px;*/
 /*	padding: 50px 0px 50px 0px;*/
 	padding: 60px 0px;
 }
-.between_h2 {
+.header__h2 {
 	font-size: 56px;
-}
-.between_p {
-	font-size: 26px;
 }
 /* --- COMMON ---------------------------------------------------- */
 /* ------------------------------- */
