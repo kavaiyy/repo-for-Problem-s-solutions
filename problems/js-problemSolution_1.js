@@ -1,10 +1,13 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // - - - - - - - - - - - -
-// Problem #1 solution:
+// Problem #1: 
+// 				Validation of parangtheses - solution:
 //      Return true if parentheses are valid, otherwise - false.
 // - - - - - - - - - - - -
 
-//	Main version:
+//			*	*	*	*	*	*	*	*	*
+//					Main version:
+//			*	*	*	*	*	*	*	*	*
 function isParenthesesValid(s) {
 	// Additional function:
 		function StringCharToInteger(s) {
@@ -44,53 +47,11 @@ function isParenthesesValid(s) {
 };
 
 
-//	Very first bad version:
-function isParenthesesValid_veryFirstVersion(s) {
 
-    let res = true;
-    let N = s.length-1;
-    let stack = [];
-    let expected_bracket = [];
+//			*	*	*	*	*	*	*	*	*	*	*
+//				Version with stack but, array:
+//			*	*	*	*	*	*	*	*	*	*	*
 
-    let i = -1;
-    while(i < N) {
-        i=i+1;
-        if( (s[i]!='(')&&(s[i]!='{')&&(s[i]!='[')&&(s[i]!=')')&&(s[i]!='}')&&(s[i]!=']') ) {continue;}
-        // stack.push(s[i])
-        if( (s[i]=='(')||(s[i]=='{')||(s[i]=='[') ) {
-            stack.push(s[i])
-            switch(s[i]) {
-                case '(':
-                    expected_bracket.push(')');
-                    break;
-                case '{':
-                    expected_bracket.push('}');
-                    break;
-                case '[':
-                    expected_bracket.push(']');
-                    break;
-            }
-        }
-        else if (s[i] == expected_bracket.pop()) {
-            stack.pop()
-        } else {
-            res = false;
-            break;
-        }
-        // console.log(i, s[i])
-    }
-
-    if(expected_bracket.length !=0) { res = false;}
-    return res;
-};
-
-//~ As previous Solution but without pop and push
-// And memory allocation before and with MAX-memory array.
-// Can't undestand from leetcode which is faster, time changes between submition completly sometime.
-// Probable because of memmory garbage.
-// 47 ms on test cases with   let positive_bracket_line = [];
-// 53 ms on test cases with   let positive_bracket_line = new Array(N2);
-// 87.76% 51ms
 var isParenthesesValid_v3 = function(s) {
 	// Additional function:
 		function StringCharToInteger(s) {
@@ -136,9 +97,21 @@ var isParenthesesValid_v3 = function(s) {
     return !Boolean(pointer_bracket_line+1);
 };
 
-// Intresting variant cause this solution will be the fastest as it utilizes minumun if statesments,
-// althoug this is not very "clean code", as for example var with switch allows easy addition of different symbols.
-// and nested if's for some taste might seem not good.
+// *	*	*	Comment:
+//~ As previous Solution but without pop and push
+// And memory allocation before and with MAX-memory array.
+// Can't undestand from leetcode which is faster, time changes between submition completly sometime.
+// Probable because of memmory garbage.
+// 47 ms on test cases with   let positive_bracket_line = [];
+// 53 ms on test cases with   let positive_bracket_line = new Array(N2);
+// 87.76% 51ms
+
+
+
+//			*	*	*	*	*	*	*	*	*	*	*
+//				Version with minimum and only ifs:
+//			*	*	*	*	*	*	*	*	*	*	*
+
 var isParenthesesValid_v4 = function(s) {
         stack = [];
         for( let i=0; i<s.length; i++){
@@ -157,51 +130,71 @@ var isParenthesesValid_v4 = function(s) {
         };
         return (stack.length===0);
 };
+// *	*	*	Comment:
+// Intresting variant cause this solution will be the fastest as it utilizes minumun if statesments,
+// althoug this is not very "clean code", as for example var with switch allows easy addition of different symbols.
+// and nested if's for some taste might seem not good.
 
-// Might be compared to this one:
-//~ var isValid = function (s) {
 
-    //~ let stack = []
-    //~ for (let c of s) {
-        //~ if (c === '(' || c === '{' || c === '[') {
-            //~ stack.push(c)
-        //~ } else {
-            //~ if (!stack.length ||
-                //~ (c === ')' && stack[stack.length - 1] !== '(') ||
-                //~ (c === '}' && stack[stack.length - 1] !== '{') ||
-                //~ (c === ']' && stack[stack.length - 1] !== '[')) {
-                //~ return false
-            //~ }
-            //~ stack.pop()
-        //~ }
-    //~ }
-    //~ return !stack.length
-//~ }
 
-//~ Nice try:
-
-    //~ let N = s.length;
-    //~ if(N%2 != 0) return false;
-
-    //~ let N2 = N/2;
-    //~ let i = 0;
-    //~ while(i<N2) {
-        //~ if(StringCharToInteger(s.at(i))!=StringCharToInteger(s.at(-i))) return false;
-        //~ // arr_Hash[i]=StringCharToInteger(s[i]);
-        //~ i=i+1;
-    //~ };
-    
-    //~ return true;
 
 
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // - - - - - - - - - - - -
-// For degug:
+// For deletion?:
 // - - - - - - - - - - - -
 // - - -
 
-// As it was in leetcode, cause condition is that No symbols except brackets.
+//			*	*	*	*	*	*	*	*	*
+//				Very first bad version:
+//			*	*	*	*	*	*	*	*	*
+function isParenthesesValid_veryFirstVersion(s) {
+
+    let res = true;
+    let N = s.length-1;
+    let stack = [];
+    let expected_bracket = [];
+
+    let i = -1;
+    while(i < N) {
+        i=i+1;
+        if( (s[i]!='(')&&(s[i]!='{')&&(s[i]!='[')&&(s[i]!=')')&&(s[i]!='}')&&(s[i]!=']') ) {continue;}
+        // stack.push(s[i])
+        if( (s[i]=='(')||(s[i]=='{')||(s[i]=='[') ) {
+            stack.push(s[i])
+            switch(s[i]) {
+                case '(':
+                    expected_bracket.push(')');
+                    break;
+                case '{':
+                    expected_bracket.push('}');
+                    break;
+                case '[':
+                    expected_bracket.push(']');
+                    break;
+            }
+        }
+        else if (s[i] == expected_bracket.pop()) {
+            stack.pop()
+        } else {
+            res = false;
+            break;
+        }
+        // console.log(i, s[i])
+    }
+
+    if(expected_bracket.length !=0) { res = false;}
+    return res;
+};
+
+
+
+
+//			*	*	*	*	*	*	*	*	*	*
+//				Very first bad leetcode version:
+//			*	*	*	*	*	*	*	*	*	*
+
 var isParenthesesValid_v2_leetcodeVersion = function(s) {
 
 	function StringCharToInteger(s) {
@@ -239,3 +232,51 @@ var isParenthesesValid_v2_leetcodeVersion = function(s) {
     if(last_expected_bracket.length > 0) return false;
     return true;
 };
+// *	*	*	Comment:
+// As it was in leetcode, cause condition is that No symbols except brackets,
+// analog of main version.
+
+
+
+// 
+//			*	*	*	*	*	*	*	*	*
+//		Might be compared to isParenthesesValid_v4 version:
+//			*	*	*	*	*	*	*	*	*
+
+//~ var isValid = function (s) {
+
+    //~ let stack = []
+    //~ for (let c of s) {
+        //~ if (c === '(' || c === '{' || c === '[') {
+            //~ stack.push(c)
+        //~ } else {
+            //~ if (!stack.length ||
+                //~ (c === ')' && stack[stack.length - 1] !== '(') ||
+                //~ (c === '}' && stack[stack.length - 1] !== '{') ||
+                //~ (c === ']' && stack[stack.length - 1] !== '[')) {
+                //~ return false
+            //~ }
+            //~ stack.pop()
+        //~ }
+    //~ }
+    //~ return !stack.length
+//~ }
+
+//~ Nice try:
+
+    //~ let N = s.length;
+    //~ if(N%2 != 0) return false;
+
+    //~ let N2 = N/2;
+    //~ let i = 0;
+    //~ while(i<N2) {
+        //~ if(StringCharToInteger(s.at(i))!=StringCharToInteger(s.at(-i))) return false;
+        //~ // arr_Hash[i]=StringCharToInteger(s[i]);
+        //~ i=i+1;
+    //~ };
+    
+    //~ return true;
+//~ };
+// *	*	*	Comment:
+// As it was in leetcode, cause condition is that No symbols except brackets,
+// analog of main version.
