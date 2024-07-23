@@ -12,14 +12,12 @@
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // - - - - - - - - - - - -
-// Problem1
+// Problem1 Valdation Parantheses
 // - - - - - - - - - - - -
-
-const problem1__inputTracker = document.getElementById('problem1__input-js-selector');
-const problem1__outputTracker = document.getElementsByClassName('problem1__output-js-selector')[0];
-
-function problem1_btnClick() {
+function Interface_ValidationParantheses() {
 	// Definitions:
+	const problem1__inputTracker = document.getElementById('problem1__input-js-selector');
+	const problem1__outputTracker = document.getElementsByClassName('problem1__output-js-selector')[0];
 	let input_text = problem1__inputTracker.value;
 	let res = false;
 	let true_message = "parentheses are valid";
@@ -39,10 +37,67 @@ function problem1_btnClick() {
 	problem1__outputTracker.textContent = res;
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// - - - - - - - - - - - -
+// Problem #2: Roman to Ineteger numbers
+// - - - - - - - - - - - -
+function Interface_RomanToInteger() {
+	// Definitions:
+	const RomanToInteger__inputTracker = document.getElementById('RomanToInteger__inputTracker-js');
+	const RomanToInteger__outputTracker = document.getElementsByClassName('RomanToInteger__outputTracker-js')[0];
+	let err_message1 = "In the input string there are not Roman symbols";
+	let res = "";
+	
+	// algorithm:
+	res = romanToInt(RomanToInteger__inputTracker.value);
+	
+	// Text out result;
+	if (res>0)
+	{
+		RomanToInteger__outputTracker.textContent = res;
+	}
+	else {
+		RomanToInteger__outputTracker.textContent = err_message1;
+	};	
+	
+};
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // - - - - - - - - - - - -
-// Problem2
+// Problem #3: Ineteger to Roman numbers
+// - - - - - - - - - - - -
+function Interface_integerToRoman() {
+	// Definitions:
+	const inputTracker = document.getElementById('IntegerToRoman__inputTracker-js');
+	const outputTracker = document.getElementsByClassName('IntegerToRoman__outputTracker-js')[0];
+	let err_message1 = "In the input string there are not Roman symbols";
+	let res = "";
+	
+	// algorithm:
+	let inp_var = Number(inputTracker.value);
+	console.log(inp_var);
+	res = IntegerToRoman(inp_var);
+	
+	// Text out result;
+	outputTracker.textContent = res;
+	//~ if (res>0)
+	//~ {
+		//~ RomanToInteger__outputTracker.textContent = res;
+	//~ }
+	//~ else {
+		//~ RomanToInteger__outputTracker.textContent = err_message1;
+	//~ };	
+	
+};
+
+
+
+
+
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// - - - - - - - - - - - -
+// Problem #3
 // - - - - - - - - - - - -
 const problem2__inputTracker = document.getElementsByClassName('js-selector-sudoku');
 const problem2__outputTracker = document.getElementsByClassName('problem2__output-js-selector')[0];
@@ -262,34 +317,4 @@ function getRandomCell() {
 	j = getRandomInt();
 	return [i,j]
 	};
-
-
-
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// - - - - - - - - - - - -
-// Problem3
-// - - - - - - - - - - - -
-
-function RomanToInteger() {
-	// Definitions:
-	const RomanToInteger__inputTracker = document.getElementById('RomanToInteger__inputTracker-js');
-	const RomanToInteger__outputTracker = document.getElementsByClassName('RomanToInteger__outputTracker-js')[0];
-	let err_message1 = "In the input string there are not Roman symbols";
-	let res = "";
-	
-	// algorithm:
-	res = romanToInt(RomanToInteger__inputTracker.value);
-	
-	// Text out result;
-	if (res>0)
-	{
-		RomanToInteger__outputTracker.textContent = res;
-	}
-	else {
-		RomanToInteger__outputTracker.textContent = err_message1;
-	};	
-	
-};
-
 

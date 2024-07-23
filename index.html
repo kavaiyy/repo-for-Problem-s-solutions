@@ -17,21 +17,21 @@
         <!-- <button id="theme-toggle">Сменить тему</button> -->
     </header>
 
+
+
     <section class="header__section">
         <h2 class="header__h2">Problem #1</h2>
     </section>
-
     <section class="">
-    
         <h2 class="problem1__h2"><b class="problem1__h2-accent-color">Problem:</b> check if input parentheses are valid. Implemented only for '(','[','{' parentheses.</h2>
         <label for="name">Input:</label>
         <input id="problem1__input-js-selector" type="text" required minlength="4" size="50"  placeholder="example: ({some text in parentheses})" />
-        <button class="problem1__button" onclick="problem1_btnClick()">Run script</button>
+        <button class="problem1__button" onclick="Interface_ValidationParantheses()">Run script</button>
         <h3 class="problem1__h3"> Here goes the result: </h3>
         <p class="problem1__output-js-selector">  </p>
-
         <script src="problems/Problem1_ValidParantheses.js"></script>
     </section>
+
 
     <section class="header__section">
         <h2 class="header__h2">Problem #2</h2>
@@ -40,13 +40,12 @@
 		<h2 class="problem1__h2"><b class="problem1__h2-accent-color">Problem:</b> Roman numbers to integer.</h2>
 		<label for="name">Input:</label>
         <input id="RomanToInteger__inputTracker-js" type="text" required minlength="1" size="50"  placeholder="LXVIII" />
-        <button class="problem1__button" onclick="RomanToInteger()">Run script</button>
+        <button class="problem1__button" onclick="Interface_RomanToInteger()">Run script</button>
         <h3 class="problem1__h3"> Here goes the result: </h3>
         <p class="RomanToInteger__outputTracker-js">  </p>
-
-
-        <script src="problems/Problem2_RomanToInteger.js"></script>
+		<!-- <script src="problems/Problem2_RomanToInteger.js"></script>-->
 	</section>
+
 
     <section class="header__section">
         <h2 class="header__h2">Problem #3</h2>
@@ -54,23 +53,18 @@
 	<section class="">
 		<h2 class="problem1__h2"><b class="problem1__h2-accent-color">Problem:</b> Integers to Roman numbers.</h2>
 		<label for="name">Input:</label>
-        <input id="RomanToInteger__inputTracker-js" type="text" required minlength="1" size="50"  placeholder="LXVIII" />
-        <button class="problem1__button" onclick="IntegerToRoman()">Run script</button>
+        <input id="IntegerToRoman__inputTracker-js" type="text" required minlength="1" size="50"  placeholder="LXVIII" />
+        <button class="problem1__button" onclick="Interface_integerToRoman()">Run script</button>
         <h3 class="problem1__h3"> Here goes the result: </h3>
-        <p class="RomanToInteger__outputTracker-js">  </p>
-
-
+        <p class="IntegerToRoman__outputTracker-js">  </p>
         <script src="problems/Problem2_RomanToInteger.js"></script>
 	</section>
+
 
     <section class="header__section">
         <h2 class="header__h2">Problem #4</h2>
     </section>
-
-
-    <!-- BLOCK SECTION 4 -->
     <section class="">
-   
         <h2 class="problem1__h2"><b class="problem1__h2-accent-color">Problem:</b> check if either partily filled or completed sudoku is valid.</h2>
         <!-- content #2 -->
         <div class="sudoku__inputs-container">
@@ -195,13 +189,13 @@
 <!--         <div class="sudoku__input sudoku__i11">
             <input class="sudoku__input sudoku__i11" type="text" maxlength="1" size="1" placeholder="" />
         </div> -->
-
     </section>
 
 
 
 
-    <script src="interface.js"></script>
 
+
+    <script src="interface.js"></script>
 </body>
 </html>
