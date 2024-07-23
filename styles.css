@@ -60,6 +60,7 @@ section {
 	padding: 100px 0;
 	background-color: var(--background-color-section_problem);
 }
+/* Header section between problem */
 .header__section {
 	text-align: center;
 	background-color: var(--background-color-section_between); /* #f2f9f2 */ 
@@ -70,34 +71,33 @@ section {
 .header__h2 {
 	font-size: 56px;
 }
-/* --- COMMON ---------------------------------------------------- */
-/* ------------------------------- */
-
-/* --- Problem #1 ---------------------------------------------------- */
-.problem1__output {
+/* Decription of problem in begining of section containing problem */
+.h2-problem-description {
+	font-weight: normal;
+	margin: 0 0 50px 0;
+/*	margin-bottom: 50px;*/
+}
+.h2-problem-description_accent-color {
+	color: var(--accent-color);
+}
+/* Paragraph for output of JS script solving a problem. */
+.output-result_p {
 	font-size: 16px;
 	min-height: 25px;
 	margin-bottom: 0;
 	padding-bottom: 0;
 }
-.problem1__h2 {
-	font-weight: normal;
-	margin: 0 0 50px 0;
-/*	margin-bottom: 50px;*/
-}
+/* --- COMMON ---------------------------------------------------- */
+/* ------------------------------- */
+
+/* --- Problem #1 ---------------------------------------------------- */
 .problem1__h3 {
 	font-weight: semibold;
 }
-
-
-.problem1__h2-accent-color {
-	color: var(--accent-color);
-}
-
 /* --- Problem #1 ---------------------------------------------------- */
 /* ------------------------------- */
 
-
+/* --- Problem #2 ---------------------------------------------------- */
 .sudoku__input {
 	display: block;
 	text-align: center;
@@ -225,3 +225,5 @@ section {
 	display: block;
 	margin: 25px auto;
 }
+/* --- Problem #2 ---------------------------------------------------- */
+/* ------------------------------- */
