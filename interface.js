@@ -37,6 +37,36 @@ function Interface_ValidationParantheses() {
 	problem1__outputTracker.textContent = res;
 }
 
+
+// Experiment
+function Interface_ValidationParantheses_v5() {
+	// Definitions:
+	const problem1__inputTracker = document.getElementById('problem1__input-js-selector');
+	const problem1__outputTracker = document.getElementsByClassName('problem1__output-js-selector')[0];
+	let input_text = problem1__inputTracker.value;
+	let res = '';
+	let index_res = -1;
+	let true_message = "parentheses are valid";
+	let false_message = "parentheses are not valid: ";
+	let err_message1 = "no text is submitted";
+	// algorithm:
+	if(input_text) 
+	{ 
+		index_res = isParenthesesValid_v5(input_text);
+		console.log(index_res);
+		if(index_res>=0) {
+			res = input_text.slice(0,index_res)+'-->'+input_text[index_res]+'<--'+input_text.slice(index_res+1);		
+			}
+		else {res = true_message};
+	}
+	else 
+	{
+		res = err_message1
+	}
+	// alert(res);
+	problem1__outputTracker.textContent = false_message + res;
+};
+
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // - - - - - - - - - - - -
 // Problem #2: Roman to Ineteger numbers

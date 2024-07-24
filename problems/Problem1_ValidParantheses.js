@@ -46,6 +46,53 @@ function isParenthesesValid(s) {
     return true;	
 };
 
+//			*	*	*	*	*	*	*	*	*	*	*	*	*
+//				Version with marked Error parantheses:
+//			*	*	*	*	*	*	*	*	*	*	*	*	*
+function isParenthesesValid_v5(s) {
+	// Additional function:
+		function StringCharToInteger(s) {
+			  switch(s) {
+					case '(':
+						return 1;
+					case ')':
+						return -1;               
+					case '{':
+						return 2;
+					case '}':
+						return -2;
+					case '[':
+						return 3;
+					case ']':
+						return -3;
+					default:
+						return 0;
+				};        
+			};
+	// code:
+    let N = s.length-1;
+
+    let last_expected_bracket = [];
+    let last_expected_bracket_index = [0];
+    let i = -1;
+    while(i<N) {
+		i=i+1;
+        current_bracket = StringCharToInteger(s.at(i));
+        if(current_bracket===0) continue;
+        if(current_bracket>0) {
+			last_expected_bracket.push( current_bracket );
+			last_expected_bracket_index.push( i );
+		}
+        else {
+            if(current_bracket!=(-1)*last_expected_bracket.pop()) {
+				return last_expected_bracket_index.pop();
+				}
+            else last_expected_bracket_index.pop();
+        };      
+    };
+    if(last_expected_bracket.length > 0) return last_expected_bracket_index.pop();
+    return -1;	
+};
 
 
 //			*	*	*	*	*	*	*	*	*	*	*
