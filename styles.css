@@ -99,6 +99,10 @@ section {
 	background-color: var(--background-color-code-page);
 	position: relative;
 }
+.code-pages ul {
+	margin: 0;
+	padding: 0;
+}
 .code-pages__show-code-button {
 	/*	colors, view: */
 	background-color: green;
@@ -128,26 +132,37 @@ section {
 }
 .code-pages__page-container {
 	display: block;
-	padding: 0;
-	margin: 0;
 }
 .code-page__page {
-	display: block;
+	display: none;
 }
+.js-show-page__ValidParantheses {
+	display: block;
+};
 .code-pages__page-container li:nth-child(1) {
 	border: 1px solid red;
 }
 .code-pages__page-container li:nth-child(2) {
 	border: 1px solid red;
+/*
 	display: none;
+*/
 }
 .code-pages__page-container li:nth-child(3) {
 	border: 1px solid red;
+/*
 	display: none;
+*/
+}
+
+.code-pages__page-buttons-list {
+	position: absolute;
+	display: flex;
+	left: 40px;
+	border: 1px solid red;
 }
 .code-pages__page-button {
-	position: absolute;
-	left: 30px;
+	display: block;
 	width: 30px;
 	height: 30px;
 	border: 1px solid blue;
@@ -155,14 +170,8 @@ section {
 .code-pages__page-button:hover {
 	cursor: pointer;
 }
-.code-pages__page-button_p1 {
-	left: 0px;
-}
-.code-pages__page-button_p2 {
-	left: 30px;
-}
-.code-pages__page-button_p3 {
-	left: 60px;
+.js-page-button-active__ValideParantheses {
+	background-color: lightgrey;
 }
 /* -------------------------- */
 /* --- COMMON ------------------------------------------------------------------------------------------ */

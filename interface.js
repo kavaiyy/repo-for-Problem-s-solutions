@@ -10,6 +10,59 @@
 // 	const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 //       document.documentElement.setAttribute('data-theme', theme)
 
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// - - - - - - - - - - - -
+// Show/hide js block
+// - - - - - - - - - - - -
+
+const validParantheses__pagesNum = document.getElementsByClassName('code-pages__page-buttons-list')[0];
+var activePage_i = GetActivePageNum( validParantheses__pagesNum );
+
+for (i = 0; i < validParantheses__pagesNum.childElementCount; i++)
+{
+	validParantheses__pagesNum.children[i].addEventListener('click', function(event) {
+		element_onclick = event.target;
+		if (!CheckIfActivePage(element_onclick))
+		{	 
+			HidePage(getActivePage());
+			Deactivate_pageButton(validParantheses__pagesNum.children[activePage_i]);
+			
+			Activate_pageButton(element_onclick);
+			activePage_i = GetActivePageNum( validParantheses__pagesNum );
+			
+			ShowPage(getActivePage());
+		}
+	})
+};
+
+function GetActivePageNum( dom_element ) {
+	for(i = 0; i<dom_element.childElementCount&&!dom_element.children[i].classList.contains("js-page-button-active__ValideParantheses"); i++) { };
+	return i;
+	}
+function CheckIfActivePage(element) {
+	return element.classList.contains("code-pages__js-Show-toggle-button");
+	}
+function getActivePage() {
+	element = validParantheses__pagesNum.nextElementSibling;
+	return element.children[activePage_i];
+	//~ return document.getElementsByClassName("code-pages__page-container")[0].children[activePage_i];
+	}
+function ShowPage(page) {
+	page.classList.add("js-show-page__ValidParantheses");
+	}
+function HidePage(page) {
+	page.classList.remove("js-show-page__ValidParantheses");
+	}
+function Activate_pageButton(button) {
+	button.classList.add("js-page-button-active__ValideParantheses");
+	}
+function Deactivate_pageButton(button) {
+	button.classList.remove("js-page-button-active__ValideParantheses");
+	}
+
+
+
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // - - - - - - - - - - - -
 // Problem1 Valdation Parantheses
