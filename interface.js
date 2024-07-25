@@ -29,7 +29,7 @@ function Interface_ValidationParantheses() {
 		if(isParenthesesValid(input_text)) res = true_message;
 		else res = false_message; 
 	}
-	else 
+	else
 	{
 		res = err_message1
 	}
@@ -55,7 +55,7 @@ function Interface_ValidationParantheses_v5() {
 		index_res = isParenthesesValid_v5(input_text);
 		console.log(index_res);
 		if(index_res>=0) {
-			res = input_text.slice(0,index_res)+'-->'+input_text[index_res]+'<--'+input_text.slice(index_res+1);		
+			res = false_message + input_text.slice(0,index_res)+'-->'+input_text[index_res]+'<--'+input_text.slice(index_res+1);		
 			}
 		else {res = true_message};
 	}
@@ -64,7 +64,7 @@ function Interface_ValidationParantheses_v5() {
 		res = err_message1
 	}
 	// alert(res);
-	problem1__outputTracker.textContent = false_message + res;
+	problem1__outputTracker.textContent = res;
 };
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
