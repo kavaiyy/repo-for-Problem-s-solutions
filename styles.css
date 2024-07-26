@@ -92,6 +92,7 @@ section {
 	min-height: 25px;
 	margin-bottom: 0;
 	padding-bottom: 100px;
+	box-sizing: content-box;
 }
 
 /* ----- CODE-PAGES ----------------------------- */
