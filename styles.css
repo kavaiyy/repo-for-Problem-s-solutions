@@ -186,6 +186,15 @@ section {
 .js-code-pages__show-code-toggle {
 	display: none;
 }
+.poem__header1 {
+	font-size: 36px;
+	font-style: italic;
+	color: var(--accent-color);
+}
+.poem__header2 {
+	font-size: 18px;
+	font-style: italic;
+}
 /* -------------------------- */
 /* --- COMMON ------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------ */
