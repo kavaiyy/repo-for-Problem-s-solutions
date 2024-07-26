@@ -129,10 +129,13 @@ section {
 /*
 	display: block;
 */
+
 }
 
 .code-page__page {
 	display: none;
+	padding: 50px 400px;
+	text-align: left;
 }
 .js-show-page__ValidParantheses {
 	display: block;
@@ -152,7 +155,7 @@ section {
 .code-pages__page-buttons-list {
 	position: absolute;
 	display: flex;
-	left: 40px;
+	left: 80px;
 }
 .code-pages__page-button {
 	display: block;
@@ -160,6 +163,12 @@ section {
 	height: 30px;
 	background-color: green;
 	border: 2px solid green;
+/*
+	transform-box: stroke-box;
+	transform: scale(1.4, 1.0);
+	matrix(a, b, c, d, 0, 0);   border-box;
+*/
+
 }
 .code-pages__page-button:hover {
 	cursor: pointer;

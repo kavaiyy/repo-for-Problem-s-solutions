@@ -127,11 +127,44 @@
 </pre>
 				</li>
 				<li class="code-page__page">
-					<pre>
-  Some code will be here.
-  Interview of Gordeeva is best.
-  but why she is so young-looking.
-  I want like her :).
+<pre>
+function isParenthesesValid(s) {
+	// Additional function:
+		function StringCharToInteger(s) {
+			  switch(s) {
+					case '(':
+						return 1;
+					case ')':
+						return -1;               
+					case '{':
+						return 2;
+					case '}':
+						return -2;
+					case '[':
+						return 3;
+					case ']':
+						return -3;
+					default:
+						return 0;
+				};        
+			};
+	// code:
+    let N = s.length;
+
+    let last_expected_bracket = [];
+    let i = 0;
+    while(i<N) {
+        current_bracket = StringCharToInteger(s.at(i));
+        i=i+1;
+        if(current_bracket===0) continue;
+        if(current_bracket>0) last_expected_bracket.push( current_bracket )
+        else {
+            if(current_bracket!=(-1)*last_expected_bracket.pop()) return false;
+        };      
+    };
+    if(last_expected_bracket.length > 0) return false;
+    return true;	
+};
 </pre>					
 					</li>
 				</ul>
