@@ -125,53 +125,57 @@ section {
 	border: inset yellow;
 	border-width: 3px 3px 0px 3px;
 }
-.code-pages__container {
+.code-pages__page-container {
 /*
-	display: none;
+	display: block;
 */
 }
-.code-pages__page-container {
-	display: block;
-}
+
 .code-page__page {
 	display: none;
 }
 .js-show-page__ValidParantheses {
 	display: block;
-};
+}
+/*
 .code-pages__page-container li:nth-child(1) {
 	border: 1px solid red;
 }
 .code-pages__page-container li:nth-child(2) {
 	border: 1px solid red;
-/*
-	display: none;
-*/
 }
 .code-pages__page-container li:nth-child(3) {
 	border: 1px solid red;
-/*
-	display: none;
-*/
 }
+*/
 
 .code-pages__page-buttons-list {
 	position: absolute;
 	display: flex;
 	left: 40px;
-	border: 1px solid red;
 }
 .code-pages__page-button {
 	display: block;
 	width: 30px;
 	height: 30px;
-	border: 1px solid blue;
+	background-color: green;
+	border: 2px solid green;
 }
 .code-pages__page-button:hover {
 	cursor: pointer;
 }
+.code-pages__page-buttons-list li:nth-child(1) {
+	border-radius: 0 0 0 120%;
+}
+.code-pages__page-buttons-list li:last-child {
+	border-radius:  0 70% 5% 0;
+}
+
 .js-page-button-active__ValideParantheses {
-	background-color: lightgrey;
+	border: 2px solid;
+}
+.js-code-pages__show-code-toggle {
+	display: none;
 }
 /* -------------------------- */
 /* --- COMMON ------------------------------------------------------------------------------------------ */

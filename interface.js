@@ -16,25 +16,45 @@
 // Show/hide js block
 // - - - - - - - - - - - -
 
-const validParantheses__pagesNum = document.getElementsByClassName('code-pages__page-buttons-list')[0];
-var activePage_i = GetActivePageNum( validParantheses__pagesNum );
-
-for (i = 0; i < validParantheses__pagesNum.childElementCount; i++)
+const validParantheses__pagesNum = document.getElementsByClassName('code-pages__page-buttons-list');
+//~ const validParantheses__showCodeBtn = document.getElementsByClassName("code-pages__show-code-button");
+var activePage_i = [];
+for (j = 0; j < validParantheses__pagesNum.length; j++)
 {
-	validParantheses__pagesNum.children[i].addEventListener('click', function(event) {
-		element_onclick = event.target;
-		if (!CheckIfActivePage(element_onclick))
-		{	 
-			HidePage(getActivePage());
-			Deactivate_pageButton(validParantheses__pagesNum.children[activePage_i]);
-			
-			Activate_pageButton(element_onclick);
-			activePage_i = GetActivePageNum( validParantheses__pagesNum );
-			
-			ShowPage(getActivePage());
-		}
-	})
-};
+	validParantheses__pagesNum[j].id = j.toString();
+	activePage_i.push(GetActivePageNum( validParantheses__pagesNum[j] ));
+}
+
+for (j = 0; j < validParantheses__pagesNum.length; j++)
+{
+	// Initialization of ""ShowCode" buttons
+	ShowCodeButton_DOMelement = validParantheses__pagesNum[j].parentElement.previousElementSibling;
+	//~ validParantheses__showCodeBtn[j].addEventListener('click', function(event) {
+	ShowCodeButton_DOMelement.addEventListener('click', function(event) {
+		element = event.target.nextElementSibling;
+		element.classList.toggle("js-code-pages__show-code-toggle");
+	});
+	console.log(j);
+	// Initialization of pages buttons
+	for (i = 0; i < validParantheses__pagesNum[j].childElementCount; i++)
+	{
+		validParantheses__pagesNum[j].children[i].addEventListener('click', function(event) {
+			element_onclick = event.target;
+			element_id = element_onclick.parentElement.id;
+			if (!CheckIfActivePage(element_onclick))
+			{	 
+				HidePage(getActivePage(element_id));
+				Deactivate_pageButton(validParantheses__pagesNum[element_id].children[activePage_i.at(element_id)]);
+				
+				Activate_pageButton(element_onclick);
+				activePage_i[element_id] = GetActivePageNum( validParantheses__pagesNum[element_id] );
+				
+				ShowPage(getActivePage(element_id));
+			}
+		})
+	};	
+	
+}
 
 function GetActivePageNum( dom_element ) {
 	for(i = 0; i<dom_element.childElementCount&&!dom_element.children[i].classList.contains("js-page-button-active__ValideParantheses"); i++) { };
@@ -43,9 +63,11 @@ function GetActivePageNum( dom_element ) {
 function CheckIfActivePage(element) {
 	return element.classList.contains("code-pages__js-Show-toggle-button");
 	}
-function getActivePage() {
-	element = validParantheses__pagesNum.nextElementSibling;
-	return element.children[activePage_i];
+function getActivePage( pages_widget_id ) {
+	//~ element = validParantheses__pagesNum.nextElementSibling;
+	let i = activePage_i[pages_widget_id];
+	element = validParantheses__pagesNum[pages_widget_id].nextElementSibling;
+	return element.children[i];
 	//~ return document.getElementsByClassName("code-pages__page-container")[0].children[activePage_i];
 	}
 function ShowPage(page) {
@@ -60,6 +82,30 @@ function Activate_pageButton(button) {
 function Deactivate_pageButton(button) {
 	button.classList.remove("js-page-button-active__ValideParantheses");
 	}
+
+// Version for ine ex
+//~ for (i = 0; i < validParantheses__pagesNum.childElementCount; i++)
+//~ {
+	//~ validParantheses__pagesNum.children[i].addEventListener('click', function(event) {
+		//~ element_onclick = event.target;
+		//~ if (!CheckIfActivePage(element_onclick))
+		//~ {	 
+			//~ HidePage(getActivePage());
+			//~ Deactivate_pageButton(validParantheses__pagesNum.children[activePage_i]);
+			
+			//~ Activate_pageButton(element_onclick);
+			//~ activePage_i = GetActivePageNum( validParantheses__pagesNum );
+			
+			//~ ShowPage(getActivePage());
+		//~ }
+	//~ })
+//~ };
+
+//~ const validParantheses__showCodeBtn = document.getElementsByClassName("code-pages__show-code-button")[0];
+//~ validParantheses__showCodeBtn.addEventListener('click', function(event) {
+	//~ element = event.target.nextElementSibling;
+	//~ element.classList.toggle("js-code-pages__show-code-toggle");
+//~ });
 
 
 
