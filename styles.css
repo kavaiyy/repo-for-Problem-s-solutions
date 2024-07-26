@@ -17,7 +17,9 @@
 	--background-color-header: #b2b9b2;
 	--background-color-section_between: #f2f9f2;
 	--background-color-section_problem: #f0f0f0;
-	--background-color-code-page: #101010;
+	--background-color-code-page: rgb(178, 185, 178);
+	--background-color-buttons: #DADD98;
+	--background-color-page-btn-pressed: orange;
 
 	--accent-color: orange;
   
@@ -31,6 +33,8 @@
 	--background-color-section_between: #4A635A;/*#71797E;*/
 	--background-color-section_problem: #333333; /* #666666*/
 	--background-color-code-page: #101010;
+	--background-color-buttons: #00A86B; /* green*/
+	--background-color-page-btn-pressed: yellow;
 
 	--accent-color: yellow;  /* #4A635A;  #5D7C71;*/
 
@@ -106,8 +110,8 @@ section {
 }
 .code-pages__show-code-button {
 	/*	colors, view: */
-	background-color: green;
-	border: solid green;
+	background-color: var(--background-color-buttons);
+	border: solid var(--background-color-buttons);
 	border-width: 3px 3px 0px 3px;
 	border-radius: 17px 17px 0 0; /* 20% 20% 0 0; */
 	/*	position: */
@@ -162,8 +166,8 @@ section {
 	display: block;
 	width: 30px;
 	height: 30px;
-	background-color: green;
-	border: 2px solid green;
+	background-color: var(--background-color-buttons);
+	border: 2px solid var(--background-color-buttons);
 /*
 	transform-box: stroke-box;
 	transform: scale(1.4, 1.0);
@@ -182,7 +186,7 @@ section {
 }
 
 .js-page-button-active__ValideParantheses {
-	border: 2px solid;
+	border: 2px solid var(--background-color-page-btn-pressed);
 }
 .js-code-pages__show-code-toggle {
 	display: none;
