@@ -223,7 +223,7 @@ function Interface_integerToRoman() {
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 // - - - - - - - - - - - -
-// Problem #3
+// Problem #4: Sudoku
 // - - - - - - - - - - - -
 const problem2__inputTracker = document.getElementsByClassName('js-selector-sudoku');
 const problem2__outputTracker = document.getElementsByClassName('problem2__output-js-selector')[0];
@@ -311,7 +311,7 @@ function problem2__GenerateGameFrom_CompletedSudoku() {
 		// Make permutations over seed sudoku:
 		cell = getRandomCell();
 		hash_key = cell[0]*9+cell[1];
-		Cells = new ListNode( cell, Sudoku[cell[0]][cell[1]] );
+		Cells = new ListNode_cells( cell, Sudoku[cell[0]][cell[1]] );
 		aCells = Cells;
 		DeletedCells_map.set(hash_key, cell);
 		
@@ -324,7 +324,7 @@ function problem2__GenerateGameFrom_CompletedSudoku() {
 			
 			// Check if sudoku have only one Solution.
 			//~ CheckIfOnlyOneSolution();
-			Cells.next = new ListNode( cell, Sudoku[cell[0]][cell[1]] );
+			Cells.next = new ListNode_cells( cell, Sudoku[cell[0]][cell[1]] );
 			Cells = Cells.next;
 			//~ RecursiveCheck_forUniqnessOfSolution(Sudoku, Cells);
 			
@@ -389,10 +389,60 @@ function problem2__CheckIfOneSolution() {
 	};
 
 
+function CrooksAlgorithm() {
+		// Definitions:
+		let Sudoku = null; // Sudoku[0-8][0-8]
+		let Cells = null;
+		let cell = [0,0];
+		let ncellsToDelte = 3; // [0;64] 64
+		let DeletedCells = [];
+		//~ let DeletedCells_set = new Set();
+		let DeletedCells_map = new Map();
+		let hash_key = -1;
+
+		// Create seed sudoku:
+		Sudoku = readSudoku();
+		
+		// Make permutations over seed sudoku:
+		let i = 0;
+		Cells = aCells;
+		while (Cells && i<6)
+		{
+			i = i + 1;
+			console.log(Cells);
+			Cells = Cells.next;
+		}
+		
+		
+		let res = RecursiveCheck_forUniqnessOfSolution(Sudoku, aCells);
+		
+		console.log(res);
+		
+
+		// Write in numbers in sudoku on site:
+		//~ writeInSudoku(Sudoku);
+	};
 
 
 
+function test() {
+	
+	sett = new Set();
+	sett2 = new Set();
 
+	sett.add(111);
+	sett.add(222);
+	sett.add(1);
+	sett.add(2);
+	
+	sett2.add(1);
+	//~ sett2.add(2);
+	
+	
+	console.log(sett.difference(sett2));
+	
+	
+	};
 
 
 

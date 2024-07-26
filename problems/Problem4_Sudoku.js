@@ -136,7 +136,7 @@ var isValidSudoku = function(board)
     };
 
 
-class ListNode {
+class ListNode_cells {
   constructor(aCell, aDigit){
     this.cell = aCell;
     this.original_digit = aDigit;
@@ -189,19 +189,134 @@ function CheckIfOnlyOneSolution(board, i_element, j_element) {
 
 
 
+function create2D_arr() {
+	let arr2D = new Array(9);
+	for (i = 0; i < _; i++)
+	{
+		arr2D[i] = new Array(9);
+	};
+	return arr2D;
+	};
+function create_Set() {
+	return new Set([1,2,3,4,5,6,7,8,9]);
+	};
+function create_solvedSet(i) {
+	return new Set([i]);
+	};
 
+function CrooksAlgorithm(Sudoku) {
+		// Definitions:
+		let emptyCells = [];
+		//
+		let array_2D = create2D_arr();
+		let current_set = create_Set();
+		
+	// get array of empty cells
+	for( i = 0; i < 9; i++)
+		for( j = 0; j < 9; j++) 
+			if(Sudoku[i][j]===emptyCell) emptyCells.push([i,j]);
+			
+	let emptyCells_Solved = new Array(emptyCells.length);
+	emptyCells_Solved.fill(false);
+			
+	for( i = 0; i < 9; i++)
+		for( j = 0; j < 9; j++) 
+			if(Sudoku[i][j]===emptyCell) array_2D[i][j]=create_Set()
+			else array_2D[i][j]=create_solvedSet(Number(Sudoku[i][j]));
+	
+	
+	for (i = 0; i < emptyCells.length; i++)
+	{
+		row_i = emptyCells[i][0];
+		col_j = emptyCells[i][1];
+		ExculdeRows(Sudoku, array_2D, emptyCells[i]);
+		ExculdeCols(Sudoku, array_2D, emptyCells[i]);
+		ExculdeBoxes(Sudoku, array_2D, emptyCells[i]);
+		CheckIfHasSolvedCells(array_2D, emptyCells, emptyCells_Solved);
+	};
+	
 
+	//~ let HowManySolved = 0;
+	//~ let Solved = 0;
+	//~ do {
+		//~ for (i = 0; i < emptyCells.length; i++)
+		//~ {
+			//~ if(!emptyCells_Solved[i]) {
+				//~ row_i = emptyCells[i][0];
+				//~ col_j = emptyCells[i][1];
+				//~ ExculdeRows(Sudoku, array_2D, emptyCells[i]);
+				//~ ExculdeCols(Sudoku, array_2D, emptyCells[i]);
+				//~ ExculdeBoxes(Sudoku, array_2D, emptyCells[i]);
+				//~ Solved = CheckIfHasSolvedCells(array_2D, emptyCells, emptyCells_Solved);
+				//~ HowManySolved = HowManySolved + Solved;
+				//~ };
+		//~ };
+	//~ };
 
+//~ }while(Solved!==0 && HowManySolved < emptyCells.length);
 
+function ExculdeRows(Sudoku, array_2D, emptyCell) {
+	row_i = emptyCell[0];
+	col_j = emptyCell[1];
+	for (j = 0; j < 9; j++)
+	{
+		if(Sudoku[row_i][j]!==emptyCell) {
+			array_2D[row_i][col_j].difference(array_2D[row_i][j]);
+			}
+	}
+	};
+function ExculdeCols(Sudoku, array_2D, emptyCell) {
+	row_i = emptyCell[0];
+	col_j = emptyCell[1];
+	for (i = 0; i < 9; i++)
+	{
+		if(Sudoku[i][col_j]!==emptyCell) {
+			array_2D[row_i][col_j].difference(array_2D[i][col_j]);
+			}
+	}
+	};
+function ExculdeBoxes(Sudoku, array_2D, emptyCell) {
+	row_i = emptyCell[0];
+	col_j = emptyCell[1];
+	box_i = GetBox_i(row_i);
+	box_j = GetBox_j(col_j);
 
+	for(let i_sub=0; i_sub < 3; i_sub++)
+		for(let j_sub=0; j_sub < 3; j_sub++) {
+			i = i_sub + 3*box_i;
+			j = j_sub + 3*box_j;
+			if(Sudoku[i][j]!==emptyCell) {
+			array_2D[row_i][col_j].difference(array_2D[i][j]);
+			}
+		};
+};
+function GetBox_i(row_i) {
+	return Math.floor(row_i/3);
+	};
+function GetBox_j(col_j){
+	return Math.floor(col_j/3);
+	};
 
-
-
-
-
-
-
-
+function CheckIfHasZeroSets(Sudoku, array_2D, emptyCell) {
+	for( i = 0; i < 9; i++)
+		for( j = 0; j < 9; j++)
+			if(array_2D.size===0) return true;
+	return false;
+	};
+	
+function CheckIfHasSolvedCells(array_2D, emptyCells, emptyCells_Solved) {
+	HadSolvedOne = false;
+	HowManySolved = 0;
+	for(let i = 0; i < emptyCells.length; i++)
+		row_i = emptyCell[i][0];
+		col_j = emptyCell[i][1];
+		if(array_2D[row_i][col_j]===1) {
+			emptyCells_Solved[i]=true;
+			HadSolvedOne = true;
+			HowManySolved++;
+			}
+	return HowManySolved;
+	};
 
 // Python algorith from leetcode:
 //~ class Solution:
