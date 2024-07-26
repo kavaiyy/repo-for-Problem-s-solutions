@@ -34,7 +34,7 @@ for (j = 0; j < validParantheses__pagesNum.length; j++)
 		element = event.target.nextElementSibling;
 		element.classList.toggle("js-code-pages__show-code-toggle");
 	});
-	console.log(j);
+	//~ console.log(j);
 	// Initialization of pages buttons
 	for (i = 0; i < validParantheses__pagesNum[j].childElementCount; i++)
 	{
