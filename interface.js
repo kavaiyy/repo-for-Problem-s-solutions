@@ -299,7 +299,7 @@ function problem2__GenerateGameFrom_CompletedSudoku() {
 		let Sudoku = null; // Sudoku[0-8][0-8]
 		let Cells = null;
 		let cell = [0,0];
-		let ncellsToDelte = 10; // [0;64] 8
+		let ncellsToDelte = 50; // [0;64] 8 30
 		let DeletedCells = [];
 		//~ let DeletedCells_set = new Set();
 		let DeletedCells_map = new Map();
@@ -331,7 +331,7 @@ function problem2__GenerateGameFrom_CompletedSudoku() {
 			DeletedCells_map.set(hash_key, cell);
 		};
 		DeletedCells_map.forEach((aValue, aKey) => {
-			console.log(`${aKey} = ${aValue}`);
+			//~ console.log(`${aKey} = ${aValue}`);
 			ChangeSudoku_DeleteElement(Sudoku, aValue[0],aValue[1]);
 		});	
 		
@@ -359,7 +359,7 @@ function problem2__CheckIfOneSolution() {
 		let Sudoku = null; // Sudoku[0-8][0-8]
 		let Cells = null;
 		let cell = [0,0];
-		let ncellsToDelte = 3; // [0;64] 64
+		let ncellsToDelte = 6; // [0;64] 64
 		let DeletedCells = [];
 		//~ let DeletedCells_set = new Set();
 		let DeletedCells_map = new Map();
@@ -389,12 +389,12 @@ function problem2__CheckIfOneSolution() {
 	};
 
 
-function CrooksAlgorithm() {
+function SolveSudoku() {
 		// Definitions:
 		let Sudoku = null; // Sudoku[0-8][0-8]
 		let Cells = null;
 		let cell = [0,0];
-		let ncellsToDelte = 3; // [0;64] 64
+		let ncellsToDelte = 6; // [0;64] 64
 		let DeletedCells = [];
 		//~ let DeletedCells_set = new Set();
 		let DeletedCells_map = new Map();
@@ -404,23 +404,10 @@ function CrooksAlgorithm() {
 		Sudoku = readSudoku();
 		
 		// Make permutations over seed sudoku:
-		let i = 0;
-		Cells = aCells;
-		while (Cells && i<6)
-		{
-			i = i + 1;
-			console.log(Cells);
-			Cells = Cells.next;
-		}
-		
-		
-		let res = RecursiveCheck_forUniqnessOfSolution(Sudoku, aCells);
-		
-		console.log(res);
-		
+		CrooksAlgorithm(Sudoku);		
 
 		// Write in numbers in sudoku on site:
-		//~ writeInSudoku(Sudoku);
+		writeInSudoku(Sudoku);
 	};
 
 
@@ -466,8 +453,7 @@ function readSudoku() {
 			if(input_str) {
 				inp_num = Number(input_str);
 				if(!inp_num) {
-					//~ SudokuBoard[i][j]='.';
-					SudokuBoard[i][j]=emptyCell; // emptyCell defined in js-problemSolution_2.js
+					SudokuBoard[i][j]=emptyCell_symbol; // emptyCell_symbol defined in js-problemSolution_2.js
 					alert(msg_wrong_symbols);
 					}
 				else SudokuBoard[i][j] = input_str;
