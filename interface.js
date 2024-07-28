@@ -299,7 +299,7 @@ function problem2__GenerateGameFrom_CompletedSudoku() {
 		let Sudoku = null; // Sudoku[0-8][0-8]
 		let Cells = null;
 		let cell = [0,0];
-		let ncellsToDelte = 50; // [0;64] 8 30
+		let ncellsToDelte = 44; // [0;64] 8 30 50
 		let DeletedCells = [];
 		//~ let DeletedCells_set = new Set();
 		let DeletedCells_map = new Map();

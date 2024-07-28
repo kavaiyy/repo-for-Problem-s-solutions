@@ -268,7 +268,7 @@ function CrooksAlgorithm(Sudoku) {
 
 	let HowManySolved = 0; // 20
 	let Solved = 0;
-	let repeats = 2;
+	let repeats = 3;
 	do {
 		Solved = 0;
 		for (let i = 0; i < emptyCells.length; i++)
@@ -287,7 +287,9 @@ function CrooksAlgorithm(Sudoku) {
 					};
 				//~ WriteInSolvedCases(Sudoku, array_2D, emptyCells);
 			};
-	}while( Solved!==0 );
+			if(Solved===0) repeats--;
+	//~ }while( Solved!==0 );
+	}while( repeats!==0 );
 	//~ }while( Solved!==0 || HowManySolved<emptyCells.length );
 	//~ WriteInSolvedCases(Sudoku, array_2D, emptyCells);
 	let res = CheckIfSolved_Equal_Seed(Sudoku);
