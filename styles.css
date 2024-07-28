@@ -232,9 +232,27 @@ section {
 	grid-template-rows: repeat(9, 1fr);
 	width: 250px;
 	height: 250px;
-/*	border: 1px solid black;*/
-/*	background-color: red;*/
 }
+
+.sudoku__debug {
+	display: block;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	border: 1px solid black;
+}
+.sudoku__debug:focus {
+	outline: none;
+	background-color: crimson;
+}
+.sudoku__debug-container {
+	display: inline-grid;
+	grid-template-columns: repeat(9, 1fr);
+	grid-template-rows: repeat(9, 1fr);
+	width: 1000px;
+	height: 250px;
+}
+
 
 
 /* Sudoku apearance: THICKER lines */
@@ -345,3 +363,6 @@ section {
 }
 /* --- Problem #2 ---------------------------------------------------- */
 /* ------------------------------- */
+.sudoku__NotSolved-color {
+	background-color: red;
+}

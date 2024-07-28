@@ -229,11 +229,11 @@ const problem2__inputTracker = document.getElementsByClassName('js-selector-sudo
 const problem2__outputTracker = document.getElementsByClassName('problem2__output-js-selector')[0];
 
 // Button 1: Validation of sudoku
-function problem2__Validation() {
+function ValidateSudoku() {
 	// Definitions:
 	let res = false;
-	let true_message = "Sudoku is valid";
-	let false_message = "Sudoku is not valid";
+	let true_message = "Sudoku board is valid";
+	let false_message = "Sudoku board is not valid";
 	let err_message1 = "Symbols beside 1-9 are ignored";
 	let Sudoku = null; // input_board[0-8][0-8]
 	Sudoku = readSudoku();
@@ -247,13 +247,13 @@ function problem2__Validation() {
 };
 
 // Button 2: Write in site Seed Sudoku
-function problem2__GenerateSeedSudoku() {
+function WriteInSeedSudoku() {
 	var Sudoku = seedSudoku();
 	writeInSudoku(Sudoku);
 	};
 
 // Button 3: One not safe permutations (swap cell1 and cell2)
-function problem2__PermutateSudoku() {
+function SwapCells() {
 	// Definitions:
 	let Sudoku = null; // input_board[0-8][0-8]
 	const i1 = Number(document.getElementsByClassName('problem2__js-input-permutations_i1')[0].value);
@@ -272,7 +272,7 @@ function problem2__PermutateSudoku() {
 	};
 
 // Button 4: Safe permutation (swap row1 and row2)
-function problem2__PermutateSudokuRows() {
+function SwapRows() {
 	// Definitions:
 	let Sudoku = null; // Sudoku[0-8][0-8]
 	const row1 = Number(document.getElementsByClassName('problem2__js-input-permutate_row1')[0].value);
@@ -293,8 +293,8 @@ function problem2__PermutateSudokuRows() {
 
 
 var aCells = null;
-// Button 5: GenerateGameFrom_CompletedSudoku RecursiveCheck_forUniqnessOfSolution(Sudoku, Cells);
-function problem2__GenerateGameFrom_CompletedSudoku() {
+// Button 5: ---- ----
+function CrossOutSudokuCells() {
 		// Definitions:
 		let Sudoku = null; // Sudoku[0-8][0-8]
 		let Cells = null;
@@ -353,52 +353,12 @@ function problem2__GenerateGameFrom_CompletedSudoku() {
 		writeInSudoku(Sudoku);
 	};
 
-// Button 6: 
-function problem2__CheckIfOneSolution() {
-		// Definitions:
-		let Sudoku = null; // Sudoku[0-8][0-8]
-		let Cells = null;
-		let cell = [0,0];
-		let ncellsToDelte = 6; // [0;64] 64
-		let DeletedCells = [];
-		//~ let DeletedCells_set = new Set();
-		let DeletedCells_map = new Map();
-		let hash_key = -1;
 
-		// Create seed sudoku:
-		Sudoku = readSudoku();
-		
-		// Make permutations over seed sudoku:
-		let i = 0;
-		Cells = aCells;
-		while (Cells && i<6)
-		{
-			i = i + 1;
-			console.log(Cells);
-			Cells = Cells.next;
-		}
-		
-		
-		let res = RecursiveCheck_forUniqnessOfSolution(Sudoku, aCells);
-		
-		console.log(res);
-		
-
-		// Write in numbers in sudoku on site:
-		//~ writeInSudoku(Sudoku);
-	};
 
 
 function SolveSudoku() {
 		// Definitions:
 		let Sudoku = null; // Sudoku[0-8][0-8]
-		let Cells = null;
-		let cell = [0,0];
-		let ncellsToDelte = 6; // [0;64] 64
-		let DeletedCells = [];
-		//~ let DeletedCells_set = new Set();
-		let DeletedCells_map = new Map();
-		let hash_key = -1;
 
 		// Create seed sudoku:
 		Sudoku = readSudoku();
@@ -412,30 +372,34 @@ function SolveSudoku() {
 
 
 
-function test() {
-	
-	sett = new Set();
-	sett2 = new Set();
+function WriteInDebugSudoku(array_2D) {
+		// Definitions:
+		const Sudoku__outputDegub = document.getElementsByClassName("js-selector-sudoku-debug")[0].children;
+		let Sudoku = null; // Sudoku[0-8][0-8]
+		let res = null; // Sudoku[0-8][0-8]
+		function GetValuesOfSet(vSet) {
+			return Array.from(vSet.values());			
+		};
+		
+		for (let i = 0; i < 9; i++)
+			for (let j = 0; j < 9; j++) {
+				res = GetValuesOfSet(array_2D[i][j]);
+				Sudoku__outputDegub[i*9+j].value = res;
+				if(res.length>1) Sudoku__outputDegub[i*9+j].classList.add("sudoku__NotSolved-color");
+				if(res.length===1) Sudoku__outputDegub[i*9+j].classList.remove("sudoku__NotSolved-color");
+				//~ Sudoku__outputDegub[i*9+j].classList.add("sudoku__NotSolved-color");
+			};
 
-	sett.add(111);
-	sett.add(222);
-	sett.add(1);
-	sett.add(2);
-	
-	sett2.add(1);
-	//~ sett2.add(2);
-	
-	
-	console.log(sett.difference(sett2));
-	
-	
+
+		//~ // Create seed sudoku:
+		//~ Sudoku = readSudoku();
+		
+		//~ // Make permutations over seed sudoku:
+		//~ CrooksAlgorithm(Sudoku);		
+
+		//~ // Write in numbers in sudoku on site:
+		//~ writeInSudoku(Sudoku);
 	};
-
-
-
-
-
-
 
 
 
@@ -479,4 +443,73 @@ function getRandomCell() {
 	j = getRandomInt();
 	return [i,j]
 	};
+
+function test() {
+	
+	sett = new Set();
+	sett2 = new Set();
+
+	sett.add(111);
+	sett.add(222);
+	sett.add(1);
+	sett.add(2);
+	
+	sett2.add(1);
+	//~ sett2.add(2);
+	
+	
+	console.log(sett.difference(sett2));
+	
+	
+	};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// OLD TO DELETE:
+// Button 6: 
+function problem2__CheckIfOneSolution() {
+		// Definitions:
+		let Sudoku = null; // Sudoku[0-8][0-8]
+		let Cells = null;
+		let cell = [0,0];
+		let ncellsToDelte = 6; // [0;64] 64
+		let DeletedCells = [];
+		//~ let DeletedCells_set = new Set();
+		let DeletedCells_map = new Map();
+		let hash_key = -1;
+
+		// Create seed sudoku:
+		Sudoku = readSudoku();
+		
+		// Make permutations over seed sudoku:
+		let i = 0;
+		Cells = aCells;
+		while (Cells && i<6)
+		{
+			i = i + 1;
+			console.log(Cells);
+			Cells = Cells.next;
+		}
+		
+		let res = RecursiveCheck_forUniqnessOfSolution(Sudoku, aCells);
+		
+		console.log(res);	
+};
+
+
 

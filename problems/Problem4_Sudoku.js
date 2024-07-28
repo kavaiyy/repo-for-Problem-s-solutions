@@ -292,6 +292,7 @@ function CrooksAlgorithm(Sudoku) {
 	}while( repeats!==0 );
 	//~ }while( Solved!==0 || HowManySolved<emptyCells.length );
 	//~ WriteInSolvedCases(Sudoku, array_2D, emptyCells);
+	WriteInDebugSudoku(array_2D);
 	let res = CheckIfSolved_Equal_Seed(Sudoku);
 	console.log("Is equal original one?", res, "Solved", HowManySolved);
 	console.log("Have any zero sets?", CheckIfHasZeroSets(array_2D));
