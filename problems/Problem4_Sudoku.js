@@ -1,8 +1,27 @@
 // Definitions global constants:
 const emptyCell_symbol = '';
 
+class MySudokuSet {
+	constructor(inp_arr) {
+		this.hash_table = [false, false, false, false, false, false, false, false, false];
+		if(inp_arr!==undefined){
+			let valid_input = true;
+			if( inp_arr.length > 9 ) valid_input = false;
+			for (let i = 0; i < inp_arr.length; i++) if(inp_arr[i]<1 || inp_arr[i]>9) valid_input = false;
+			if(valid_input)
+				for (let i = 0; i < inp_arr.length; i++)
+					this.hash_table[inp_arr[i]-1] = true;
+		};
+	};
+	difference(anotherSudokuSet) {
+		for (let i = 0; i < 9; i++)
+			if(this.hash_table[i]) if(anotherSudokuSet.hash_table[i]) this.hash_table[i] = false;
+	};
+};
+
+
 function seedSudoku() {
-	let array_2D = [
+	let arr_2D = [
 	//~ ['5','3','4','6','7','8','9','1','2'],
 	['5','3','4','6','7','8','9','1','2'],
 	['6','7','2','1','9','5','3','4','8'],
@@ -16,12 +35,12 @@ function seedSudoku() {
 	['2','8','7','4','1','9','6','3','5'],
 	['3','4','5','2','8','6','1','7','9']
 	];
-	return array_2D;
+	return arr_2D;
 	};
 
 function create_array() {
 	let s = emptyCell_symbol;
-	let array_2D = [
+	let arr_2D = [
 	[s,s,s,s,s,s,s,s,s],
 	[s,s,s,s,s,s,s,s,s],
 	[s,s,s,s,s,s,s,s,s],
@@ -34,7 +53,7 @@ function create_array() {
 	[s,s,s,s,s,s,s,s,s],
 	[s,s,s,s,s,s,s,s,s]
 	];
-	return array_2D;
+	return arr_2D;
 	};
 
 function ChangeSudoku_DeleteElement(sudoku_board, i,j) {
@@ -366,7 +385,15 @@ function CheckIfHasSolvedCells(array_2D, arr_emptyCells, emptyCells_Solved) {
 	};
 	return vHowManySolved;
 };
-
+function CheckIfHasZeroSets( array_2D ) {
+	for(let i = 0; i < 9; i++)
+		for(let j = 0; j < 9; j++)
+			//~ if(array_2D.size===0) return true;
+			if(!((0 < array_2D[i,j].size)&&(array_2D[i,j].size < 10)) ) {
+				console.log(array_2D[i,j].size, i+1,j+1);
+				return true;} 
+	return false;
+};
 
 
 
@@ -383,12 +410,7 @@ function GetBox_j(col_j){
 	return Math.floor(col_j/3);
 };
 
-function CheckIfHasZeroSets( array_2D ) {
-	for( i = 0; i < 9; i++)
-		for( j = 0; j < 9; j++)
-			if(array_2D.size===0) return true;
-	return false;
-};
+
 	
 
 

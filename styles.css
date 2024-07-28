@@ -246,7 +246,8 @@ section {
 	background-color: crimson;
 }
 .sudoku__debug-container {
-	display: inline-grid;
+	display: grid;
+	margin: 10px auto;
 	grid-template-columns: repeat(9, 1fr);
 	grid-template-rows: repeat(9, 1fr);
 	width: 1000px;

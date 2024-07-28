@@ -384,6 +384,7 @@ function WriteInDebugSudoku(array_2D) {
 		for (let i = 0; i < 9; i++)
 			for (let j = 0; j < 9; j++) {
 				res = GetValuesOfSet(array_2D[i][j]);
+				console.log("res",res);
 				Sudoku__outputDegub[i*9+j].value = res;
 				if(res.length>1) Sudoku__outputDegub[i*9+j].classList.add("sudoku__NotSolved-color");
 				if(res.length===1) Sudoku__outputDegub[i*9+j].classList.remove("sudoku__NotSolved-color");
