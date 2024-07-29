@@ -4,18 +4,43 @@ const emptyCell_symbol = '';
 class MySudokuSet {
 	constructor(inp_arr) {
 		this.hash_table = [false, false, false, false, false, false, false, false, false];
+		this.size = 0;
 		if(inp_arr!==undefined){
 			let valid_input = true;
 			if( inp_arr.length > 9 ) valid_input = false;
 			for (let i = 0; i < inp_arr.length; i++) if(inp_arr[i]<1 || inp_arr[i]>9) valid_input = false;
 			if(valid_input)
-				for (let i = 0; i < inp_arr.length; i++)
+				for (let i = 0; i < inp_arr.length; i++) {
 					this.hash_table[inp_arr[i]-1] = true;
+					this.size++;
+				};
 		};
+	};
+	DefineSize() {
+		this.size = 0;
+		for (let i = 0; i < this.hash_table.length; i++)
+		{
+			if(this.hash_table[i]) this.size++;
+		}
 	};
 	difference(anotherSudokuSet) {
 		for (let i = 0; i < 9; i++)
 			if(this.hash_table[i]) if(anotherSudokuSet.hash_table[i]) this.hash_table[i] = false;
+		this.DefineSize();
+	};
+	toString() {
+		let res = '';
+		let space = ' ';
+		let first = 0;
+		for (let i = 0; i < this.hash_table.length; i++)
+		{
+			if(this.hash_table[i]) {
+				first++;
+				if(first!==1) res = res + space + Number(i+1)
+				else res = res + Number(i+1);
+				}
+		}
+		return res;
 	};
 };
 
