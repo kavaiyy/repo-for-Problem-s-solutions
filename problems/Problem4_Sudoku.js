@@ -287,6 +287,7 @@ function CrooksAlgorithm(Sudoku_board) {
 	} while (Solved!==0)
 
 		// Results:
+	result = GetDebugSudoku(array_2D);
 	WriteInDebugSudoku(SudokuSets, emptyCells, emptyCells_Solved);
 	WriteInSolvedCases(Sudoku_board, SudokuSets, emptyCells);
 	console.log("How many have been solved solved?", HowManySolved);
@@ -353,7 +354,19 @@ function WriteInSolvedCases(Sudoku, array_2D, arr_emptyCells) {
 };
 
 
-
+function GetDebugSudoku(array_2D) {
+		// Definitions:
+		function GetValuesOfSet(vSet) {
+			//~ return Array.from(vSet.values());	
+			return vSet.toString();		
+		};
+		const Sudoku_board_degug = create_array();
+		
+		for (let i = 0; i < 9; i++)
+			for (let j = 0; j < 9; j++) 
+				Sudoku_board_degug[i][j] = GetValuesOfSet(array_2D[i][j]);
+		return Sudoku_board_degug;
+};
 
 
 
