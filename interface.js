@@ -369,16 +369,30 @@ function SolveSudoku() {
 		// Write in numbers in sudoku on site:
 		writeInSudoku(Sudoku);
 	};
+	
+function SolveSudoku2() {
+		// Definitions:
+		let Sudoku = null; // Sudoku[0-8][0-8]
+
+		// Create seed sudoku:
+		Sudoku = readSudoku();
+		
+		// Make permutations over seed sudoku:
+		CrooksAlgorithm(Sudoku);		
+
+		// Write in numbers in sudoku on site:
+		writeInSudoku(Sudoku);
+	};
 
 
-
-function WriteInDebugSudoku(array_2D) {
+function WriteInDebugSudoku(array_2D, emptyCells, emptyCells_Solved) {
 		// Definitions:
 		const Sudoku__outputDegub = document.getElementsByClassName("js-selector-sudoku-debug")[0].children;
 		let Sudoku = null; // Sudoku[0-8][0-8]
 		let res = null; // Sudoku[0-8][0-8]
 		function GetValuesOfSet(vSet) {
-			return Array.from(vSet.values());			
+			//~ return Array.from(vSet.values());	
+			return vSet.toString();		
 		};
 		
 		for (let i = 0; i < 9; i++)
@@ -386,11 +400,17 @@ function WriteInDebugSudoku(array_2D) {
 				res = GetValuesOfSet(array_2D[i][j]);
 				console.log("res",res);
 				Sudoku__outputDegub[i*9+j].value = res;
+				Sudoku__outputDegub[i*9+j].classList.remove("sudoku__SolvedJustNow-color");
 				if(res.length>1) Sudoku__outputDegub[i*9+j].classList.add("sudoku__NotSolved-color");
 				if(res.length===1) Sudoku__outputDegub[i*9+j].classList.remove("sudoku__NotSolved-color");
 				//~ Sudoku__outputDegub[i*9+j].classList.add("sudoku__NotSolved-color");
+				// .sudoku__SolvedJustNow-color
 			};
 
+		for (let i = 0; i < emptyCells_Solved.length; i++)
+		{
+			if(emptyCells_Solved[i]) Sudoku__outputDegub[emptyCells[i][0]*9+emptyCells[i][1]].classList.add("sudoku__SolvedJustNow-color");
+		}
 
 		//~ // Create seed sudoku:
 		//~ Sudoku = readSudoku();

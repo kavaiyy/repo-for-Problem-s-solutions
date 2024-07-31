@@ -367,3 +367,6 @@ section {
 .sudoku__NotSolved-color {
 	background-color: red;
 }
+.sudoku__SolvedJustNow-color {
+	background-color: blue;
+}
