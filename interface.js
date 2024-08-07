@@ -231,83 +231,77 @@ const problem2__outputTracker = document.getElementsByClassName('problem2__outpu
 // Button 1: Validation of sudoku
 function ValidateSudoku() {
 	// Definitions:
-	let res = false;
 	let true_message = "Sudoku board is valid";
 	let false_message = "Sudoku board is not valid";
 	let err_message1 = "Symbols beside 1-9 are ignored";
-	let Sudoku = null; // input_board[0-8][0-8]
-	Sudoku = readSudoku();
+	const Sudoku = readSudoku();
 	// algorithm:
-	res = SudokuClass.isValidSudoku(Sudoku);
+	let res = SudokuClass.isValidSudoku(Sudoku);
 	// Print out the result;
-	//~ problem2__outputTracker.textContent = res;
 	if(res) problem2__outputTracker.textContent = true_message;
 	else problem2__outputTracker.textContent = false_message;
-
 };
 
 // Button 2: Write in site Seed Sudoku
 function WriteInSeedSudoku() {
 	writeInSudoku(SudokuClass.seedSudoku());
-	};
+};
 
 // Button 3: One not safe permutations (swap cell1 and cell2)
 function SwapCells() {
 	// Definitions:
-	let Sudoku = null; // input_board[0-8][0-8]
 	const i1 = Number(document.getElementsByClassName('problem2__js-input-permutations_i1')[0].value);
 	const j1 = Number(document.getElementsByClassName('problem2__js-input-permutations_j1')[0].value);
 	const i2 = Number(document.getElementsByClassName('problem2__js-input-permutations_i2')[0].value);
 	const j2 = Number(document.getElementsByClassName('problem2__js-input-permutations_j2')[0].value);
-	
+
 	// Create seed sudoku:
-	Sudoku = readSudoku();
-	
+	const Sudoku = readSudoku();
+
 	// Change in sudoku: permutations between rows 4 and 5.
 	SudokuClass.permutate_elements(Sudoku, i1-1,j1-1, i2-1,j2-1);
-	
+
 	// Write in numbers in sudoku on site:
 	writeInSudoku(Sudoku);
-	};
+};
 
-// Button 4: Safe permutation (swap row1 and row2)
+// Button 4: Safe permutation (swap row1 and row2) // Sudoku[0-8][0-8]
 function SwapRows() {
 	// Definitions:
-	let Sudoku = null; // Sudoku[0-8][0-8]
 	const row1 = Number(document.getElementsByClassName('problem2__js-input-permutate_row1')[0].value);
 	const row2 = Number(document.getElementsByClassName('problem2__js-input-permutate_row2')[0].value);
-	
+
 	// Create seed sudoku:
-	Sudoku = readSudoku();
-	
+	const Sudoku = readSudoku();
+
 	// Make permutations over seed sudoku:
 	for (let j = 1; j < 10; j++)
 	{
 		SudokuClass.permutate_elements(Sudoku, row1-1,j-1, row2-1,j-1);
 	}
-	
+
 	// Write in numbers in sudoku on site:
 	writeInSudoku(Sudoku);
-	};
+};
+
 // No button yet: Safe permutation (swap col1 and col2)
-function SwapCols() {
+function SwapCols() { // Sudoku[0-8][0-8]
 	// Definitions:
-	let Sudoku = null; // Sudoku[0-8][0-8]
 	const col1 = Number(document.getElementsByClassName('problem2__js-input-permutate_row1')[0].value);
 	const col2 = Number(document.getElementsByClassName('problem2__js-input-permutate_row2')[0].value);
-	
+
 	// Create seed sudoku:
-	Sudoku = readSudoku();
-	
+	const Sudoku = readSudoku();
+
 	// Make permutations over seed sudoku:
 	for (let i = 1; i < 10; i++)
 	{
 		SudokuClass.permutate_elements(Sudoku, i-1,col1-1, i-1,col2-1);
 	}
-	
+
 	// Write in numbers in sudoku on site:
 	writeInSudoku(Sudoku);
-	};
+};
 
 // Button 5: ---- ----
 function CrossOutSudokuCells() {
@@ -323,63 +317,22 @@ function CrossOutSudokuCells() {
 		
 		// Write in numbers in sudoku on site:
 		writeInSudoku(Sudoku.sudoku_board);
-	};
+};
 
 // Button 6: ---- ----
 function SolveSudoku() {
-		// Definitions:
-		let Sudoku = null; // Sudoku[0-8][0-8]
-
 		// Create seed sudoku:
-		Sudoku = new SudokuClass( readSudoku() );
+		const Sudoku = new SudokuClass( readSudoku() ); // Sudoku[0-8][0-8]
 
 		// Make permutations over seed sudoku:
 		Sudoku.CrooksAlgorithm();
 
 		// Write in numbers in sudoku on site:
 		writeInSudoku(Sudoku.sudoku_board);
-	};
-
-
-
-function WriteInDebugSudoku(array_2D, emptyCells, emptyCells_Solved) {
-		// Definitions:
-		const Sudoku__outputDegub = document.getElementsByClassName("js-selector-sudoku-debug")[0].children;
-		let Sudoku = null; // Sudoku[0-8][0-8]
-		let res = null; // Sudoku[0-8][0-8]
-		function GetValuesOfSet(vSet) {
-			//~ return Array.from(vSet.values());	
-			return vSet.toString();		
-		};
 		
-		for (let i = 0; i < 9; i++)
-			for (let j = 0; j < 9; j++) {
-				res = GetValuesOfSet(array_2D[i][j]);
-				console.log("res",res);
-				Sudoku__outputDegub[i*9+j].value = res;
-				Sudoku__outputDegub[i*9+j].classList.remove("sudoku__SolvedJustNow-color");
-				if(res.length>1) Sudoku__outputDegub[i*9+j].classList.add("sudoku__NotSolved-color");
-				if(res.length===1) Sudoku__outputDegub[i*9+j].classList.remove("sudoku__NotSolved-color");
-				//~ Sudoku__outputDegub[i*9+j].classList.add("sudoku__NotSolved-color");
-				// .sudoku__SolvedJustNow-color
-			};
-
-		for (let i = 0; i < emptyCells_Solved.length; i++)
-		{
-			if(emptyCells_Solved[i]) Sudoku__outputDegub[emptyCells[i][0]*9+emptyCells[i][1]].classList.add("sudoku__SolvedJustNow-color");
-		}
-
-		//~ // Create seed sudoku:
-		//~ Sudoku = readSudoku();
-		
-		//~ // Make permutations over seed sudoku:
-		//~ CrooksAlgorithm(Sudoku);		
-
-		//~ // Write in numbers in sudoku on site:
-		//~ writeInSudoku(Sudoku);
-	};
-
-
+		// Write in numbers in sudoku_debug_board on site:
+		WriteInDebugSudoku(Sudoku);
+};
 
 
 
@@ -410,4 +363,30 @@ function writeInSudoku(SudokuBoard) {
 			problem2__inputTracker[i*9 + j].value = SudokuBoard[i][j];
 			};
 	};
+
+function WriteInDebugSudoku(Sudoku) { // Sudoku[0-8][0-8]
+		// Definitions:
+		const Sudoku__outputDegub = document.getElementsByClassName("js-selector-sudoku-debug")[0].children;
+		const GetValuesOfSet = function(vSet) {
+			//~ return Array.from(vSet.values());
+			return vSet.toString();		
+		};
+
+		for (let i = 0; i < 9; i++)
+			for (let j = 0; j < 9; j++) {
+				let res = GetValuesOfSet(Sudoku.debug_board[i][j]);
+				console.log("res",res);
+				Sudoku__outputDegub[i*9+j].value = res;
+				Sudoku__outputDegub[i*9+j].classList.remove("sudoku__SolvedJustNow-color");
+				if(res.length>1) Sudoku__outputDegub[i*9+j].classList.add("sudoku__NotSolved-color");
+				if(res.length===1) Sudoku__outputDegub[i*9+j].classList.remove("sudoku__NotSolved-color");
+				//~ Sudoku__outputDegub[i*9+j].classList.add("sudoku__NotSolved-color");
+				// .sudoku__SolvedJustNow-color
+			};
+
+		for (let i = 0; i < Sudoku.emptyCells_solved.length; i++)
+		{
+			if(Sudoku.emptyCells_solved[i]) Sudoku__outputDegub[Sudoku.emptyCells[i][0]*9+Sudoku.emptyCells[i][1]].classList.add("sudoku__SolvedJustNow-color");
+		}
+};
 
