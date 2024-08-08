@@ -1,5 +1,6 @@
 class MySudokuSet {
 	static space_symbol = ' ';
+	static MAX_ELEMENTS = 9;
 	constructor(inp_arr) {
 		this.hash_table = [false, false, false, false, false, false, false, false, false];
 		this.size = 0;
@@ -72,7 +73,10 @@ class MySudokuSet {
 		return this.hash_table[element-1];
 	};
 	values() {
-		return this;
+		arr = [];
+		for (let i = 0; i < 9; i++)
+			if(this.hash_table[i]) arr.push(i+1);
+		return arr;
 	};
 	addAllElements() {
 		for (let i = 0; i < 9; i++)
@@ -114,9 +118,11 @@ class SudokuClass {
 	static setEmptyCell_symbol(symbol) {
 			SudokuClass.emptyCell_symbol = symbol;
 	};
+	static getRandomInt(max_num_plus_one) {
+		return Math.floor( Math.random() * max_num_plus_one );
+	};
 	static getRandomCell() {
-		const getRandomInt =  function() {return Math.floor(Math.random() * 9)}; // function: get random from 0 to 8
-		return [getRandomInt(),getRandomInt()]
+		return [SudokuClass.getRandomInt(9), SudokuClass.getRandomInt(9)]
 	};
 	static createEmpty2D_arr(dummy_symbol) {
 		const arr2D = new Array(9);
@@ -168,8 +174,8 @@ class SudokuClass {
 	#setUp_sudoku() {
 		this.emptyCells = [];
 		this.emptyCells_solved = [];
-		this.init_solvedSets();
-		this.init_emptyCells();
+		this.#init_solvedSets();
+		this.#init_emptyCells();
 	};
 	setSudoku_board(input_sudoku) {
 		this.sudoku_board = input_sudoku;
@@ -294,19 +300,19 @@ class SudokuClass {
 		];
 		return arr_2D;
 	};
-	static seedSudoku2() {
+	static emptySudoku() { // seedSudoku2
 		let s = SudokuClass.emptyCell_symbol;
 		let arr_2D = [
-		[s,'1',s,s,s,s,s,s,s],
+		[s,s,s,s,s,s,s,s,s],
+		[s,s,s,s,s,s,s,s,s],
+		[s,s,s,s,s,s,s,s,s],
+		
+		[s,s,s,s,s,s,s,s,s],
 		[s,s,s,s,s,s,s,s,s],
 		[s,s,s,s,s,s,s,s,s],
 		
 		[s,s,s,s,s,s,s,s,s],
-		[s,s,s,s,'3',s,s,s,s],
 		[s,s,s,s,s,s,s,s,s],
-		
-		[s,s,s,s,s,s,s,s,s],
-		[s,s,s,s,'5',s,s,s,s],
 		[s,s,s,s,s,s,s,s,s]
 		];
 		return arr_2D;
@@ -345,8 +351,8 @@ class SudokuClass {
 		});
 		this.#init_solvedSets();
 		this.#init_emptyCells();
-		this.#setUp_taskBoard();
-		this.#setUp_debugBoard();
+		//~ this.#setUp_taskBoard();
+		//~ this.#setUp_debugBoard();
 	};
 	#ExcludeRows(altered_Set, row_i, col_j) {
 		for (let j = 0; j < 9; j++)
@@ -418,9 +424,61 @@ class SudokuClass {
 		const col_j = one_emptyCell[1];
 		this.#WorkOut_OneCell( this.FocusedSet, row_i,col_j );	
 	};
+	GenerateSingleSolutionTask(number_startingCells) {
+		if(number_startingCells<17) return SudokuClass.emptySudoku();
+		number_startingCells = 81 - number_startingCells;
+		let repeats = 100000;
+		do
+		{
+			//~ this.setSudoku_board(SudokuClass.seedSudoku());
+			this.sudoku_board = SudokuClass.seedSudoku();
+			this.#setUp_sudoku();
+			this.CrossOutSudokuCells(number_startingCells);
+			this.#setUp_taskBoard();
+			this.CrooksAlgorithm();
+			repeats--;
+		} while (this.IfYetUnsolved() && repeats)
+		if(!repeats) return SudokuClass.emptySudoku();
+
+		this.sudoku_board = SudokuClass.seedSudoku();
+		this.#setUp_sudoku();
+
+		return this.task_board;
+	};
+
+	getRandomSuposition() {
+		emptyCells.length;
+		//~ const i_index = Math.floor(Math.random() * emptyCells.length);
+		const i_index = SudokuClass.getRandomInt(emptyCells.length);
+		const cell = emptyCells[i_index];
+		const row_i = cell[0];
+		const col_j = cell[1];
+		const setSupposed = this.sudokuSets[row_i][col_j];
+		const arr_set = setSupposed.values();
+		let num_to_suppose = 0;
+		//~ if(arr_set.length) num_to_suppose = Math.floor(Math.random() * arr_set.length);
+		if(arr_set.length) num_to_suppose = SudokuClass.getRandomInt(arr_set.length);
+		return [row_i,col_j, num_to_suppose];
+	};
+
+	//~ Suppose(cell, supposed_num) {
+		//~ let NUM_CELLS_DELETE = 40;
+		//~ this.sudoku_board = SudokuClass.seedSudoku();
+		//~ this.#setUp_sudoku();
+		//~ this.CrossOutSudokuCells(NUM_CELLS_DELETE);
+		//~ this.CrooksAlgorithm();
+		//~ if(this.IfYetUnsolved()) Suppose(supposed_num);
+		//~ else return 
+	//~ };
 };
 
 
+	//~ static getRandomInt() {
+		//~ return Math.floor(Math.random() * 9);
+	//~ };
+	//~ static getRandomCell() {
+		//~ return [SudokuClass.getRandomInt(), SudokuClass.getRandomInt()]
+	//~ };
 
 //~ let set1 = new MySudokuSet();
 //~ console.log(set1.add(1).add(2).add(3).add(4).add(5).add(6).add(7).add(8).add(11));
@@ -483,14 +541,17 @@ class SudokuClass {
 
 
 
+//~ if (0 || NaN || undefined) {                // these are "falsy"
+    //~ // this never happens
+//~ } else if (1 /* or any other number*/ ){    // these are "truthy"
+    //~ // this happens
+//~ }
 
 
 
-
-
-
-
-
+board = SudokuClass.seedSudoku();
+const obj_x = new SudokuClass(board);
+console.log(obj_x.GenerateSingleSolutionTask(25)); // take several launches to find one.
 
 
 

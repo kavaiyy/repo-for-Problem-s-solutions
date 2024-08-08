@@ -256,6 +256,74 @@ section {
 
 
 
+
+
+
+
+
+
+
+
+/*
+ HERE last time
+*/
+
+.sudoku-validation__flex-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	border: 1px solid red;
+/*
+	grid-template-columns: 1fr 1fr 1fr;
+*/
+}
+.sudoku-validation__flex-container button {
+/*
+	margin: 0;
+*/
+	border: 1px solid blue;
+}
+.sudoku-validation__results {
+	display: flex;
+	align-items: center;
+	border: 1px solid red;
+}
+.sudoku-validation__results div {
+/*
+	display: flex;
+	flex-direction: column;
+*/
+	border: 1px solid green;
+}
+
+.sudoku-validation__results .output-result_p {
+	padding: 0; /* .problem1__h3 */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Sudoku apearance: THICKER lines */
 .sudoku__i31, .sudoku__i32, .sudoku__i33, .sudoku__i34, .sudoku__i35, .sudoku__i36, .sudoku__i37, .sudoku__i38, .sudoku__i39 {
 	border-bottom: 3px solid black; /* row 3 horizontal line */
