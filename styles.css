@@ -69,6 +69,10 @@ section {
 */
 	background-color: var(--background-color-section_problem);
 }
+button {
+	display: block;
+	margin: 0 auto;
+}
 /* Header section between problem */
 .header__section {
 	text-align: center;
@@ -171,12 +175,6 @@ section {
 	height: 30px;
 	background-color: var(--background-color-buttons);
 	border: 2px solid var(--background-color-buttons);
-/*
-	transform-box: stroke-box;
-	transform: scale(1.4, 1.0);
-	matrix(a, b, c, d, 0, 0);   border-box;
-*/
-
 }
 .code-pages__page-button:hover {
 	cursor: pointer;
@@ -209,8 +207,10 @@ section {
 /* ------------------------------------------------------------------------------ */
 
 /* --- Problem #1 ---------------------------------------------------- */
-.problem1__h3 {
+.output__h3 {
 	font-weight: semibold;
+	padding-top: 12px;
+	margin: 0;
 }
 /* --- Problem #1 ---------------------------------------------------- */
 /* ------------------------------- */
@@ -267,52 +267,68 @@ section {
 /*
  HERE last time
 */
+.sudoku__inputs-container {
+	margin: 0 auto;
+}
 
-.sudoku-validation__flex-container {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
+
+.sudoku-validation__grid-container {
+	display: grid;
+	grid-template-columns: 10fr 2fr 10fr;
 	align-items: center;
-	border: 1px solid red;
-/*
-	grid-template-columns: 1fr 1fr 1fr;
-*/
 }
-.sudoku-validation__flex-container button {
-/*
-	margin: 0;
-*/
-	border: 1px solid blue;
-}
-.sudoku-validation__results {
+.sudoku-validation__left-block {
 	display: flex;
 	align-items: center;
-	border: 1px solid red;
+	gap: 70px;
+	justify-content: center;
 }
-.sudoku-validation__results div {
+
+.sudoku-validation__output {
 /*
 	display: flex;
 	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
 */
-	border: 1px solid green;
+	border: 1px solid red;
+}
+.sudoku-validation__output-p {
+	padding: 0;
 }
 
-.sudoku-validation__results .output-result_p {
-	padding: 0; /* .problem1__h3 */
+.sudoku-validation__flex-container {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+.grow {
+	min-width: 10px;
+	flex-grow: 5;
 }
 
 
 
 
 
+.sudoku-validation__grid-container div {
+	border: 1px solid blue;
+}
 
 
 
 
+.sudoku-validation__button {
+	display: block;
+	margin: 10px auto 15px auto;
+}
 
 
-
-
+.sudoku-validation__swap-block {
+/*
+	width: 300px;
+*/
+}
 
 
 

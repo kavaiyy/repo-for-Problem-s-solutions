@@ -228,51 +228,67 @@ function Interface_integerToRoman() {
 const problem2__inputTracker = document.getElementsByClassName('js-selector-sudoku');
 const problem2__outputTracker = document.getElementsByClassName('problem2__output-js-selector')[0];
 
-// Button 1: Validation of sudoku
-function ValidateSudoku() {
+
+//~ const SudokuValidation__inputTracker = document.getElementsByClassName('js-selector-sudoku-validation')[0];
+//~ const SudokuValidation__outputTracker = document.getElementsByClassName('js-output-validation')[0];
+
+
+function ValidateSudoku(inputTracker, outputTracker) {
 	// Definitions:
 	let true_message = "Sudoku board is valid";
 	let false_message = "Sudoku board is not valid";
 	let err_message1 = "Symbols beside 1-9 are ignored";
-	const Sudoku = readSudoku();
+	//~ SudokuValidation__outputTracker;
+	const Sudoku = readSudoku(inputTracker);
 	// algorithm:
 	let res = SudokuClass.isValidSudoku(Sudoku);
-	// Print out the result;
-	if(res) problem2__outputTracker.textContent = true_message;
-	else problem2__outputTracker.textContent = false_message;
+	// Print out the result; SudokuValidation__outputTracker
+	if(res) outputTracker.textContent = true_message;
+	else outputTracker.textContent = false_message;
+};
+
+// Button 1: Validation of sudoku
+function Button_sudokuValidation() {
+	// Definitions:
+	const inputTracker = document.getElementsByClassName('js-selector-sudoku-validation');
+	const outputTracker = document.getElementsByClassName('js-sudoku-validation_output')[0];
+	ValidateSudoku(inputTracker, outputTracker);
 };
 
 // Button 2: Write in site Seed Sudoku
-function WriteInSeedSudoku() {
-	writeInSudoku(SudokuClass.seedSudoku());
+function Button_WriteInSeedSudoku() {
+	const outputTracker = document.getElementsByClassName('js-selector-sudoku-validation');
+	writeInSudoku(SudokuClass.seedSudoku(), outputTracker);
 };
 
 // Button 3: One not safe permutations (swap cell1 and cell2)
 function SwapCells() {
 	// Definitions:
-	const i1 = Number(document.getElementsByClassName('problem2__js-input-permutations_i1')[0].value);
-	const j1 = Number(document.getElementsByClassName('problem2__js-input-permutations_j1')[0].value);
-	const i2 = Number(document.getElementsByClassName('problem2__js-input-permutations_i2')[0].value);
-	const j2 = Number(document.getElementsByClassName('problem2__js-input-permutations_j2')[0].value);
+	const i1 = Number(document.getElementsByClassName('js-input-swap_i1')[0].value);
+	const j1 = Number(document.getElementsByClassName('js-input-swap_j1')[0].value);
+	const i2 = Number(document.getElementsByClassName('js-input-swap_i2')[0].value);
+	const j2 = Number(document.getElementsByClassName('js-input-swap_j2')[0].value);
+	const SudokuTracker = document.getElementsByClassName('js-selector-sudoku-validation');
 
 	// Create seed sudoku:
-	const Sudoku = readSudoku();
+	const Sudoku = readSudoku(SudokuTracker);
 
 	// Change in sudoku: permutations between rows 4 and 5.
 	SudokuClass.permutate_elements(Sudoku, i1-1,j1-1, i2-1,j2-1);
 
 	// Write in numbers in sudoku on site:
-	writeInSudoku(Sudoku);
+	writeInSudoku(Sudoku, SudokuTracker);
 };
 
 // Button 4: Safe permutation (swap row1 and row2) // Sudoku[0-8][0-8]
 function SwapRows() {
 	// Definitions:
-	const row1 = Number(document.getElementsByClassName('problem2__js-input-permutate_row1')[0].value);
-	const row2 = Number(document.getElementsByClassName('problem2__js-input-permutate_row2')[0].value);
+	const row1 = Number(document.getElementsByClassName('js-input-swap-row1')[0].value);
+	const row2 = Number(document.getElementsByClassName('js-input-swap-row2')[0].value);
+	const SudokuTracker = document.getElementsByClassName('js-selector-sudoku-validation');
 
 	// Create seed sudoku:
-	const Sudoku = readSudoku();
+	const Sudoku = readSudoku(SudokuTracker);
 
 	// Make permutations over seed sudoku:
 	for (let j = 1; j < 10; j++)
@@ -281,17 +297,18 @@ function SwapRows() {
 	}
 
 	// Write in numbers in sudoku on site:
-	writeInSudoku(Sudoku);
+	writeInSudoku(Sudoku, SudokuTracker);
 };
 
 // No button yet: Safe permutation (swap col1 and col2)
 function SwapCols() { // Sudoku[0-8][0-8]
 	// Definitions:
-	const col1 = Number(document.getElementsByClassName('problem2__js-input-permutate_row1')[0].value);
-	const col2 = Number(document.getElementsByClassName('problem2__js-input-permutate_row2')[0].value);
+	const col1 = Number(document.getElementsByClassName('js-input-swap-col1')[0].value);
+	const col2 = Number(document.getElementsByClassName('js-input-swap-col2')[0].value);
+	const SudokuTracker = document.getElementsByClassName('js-selector-sudoku-validation');
 
 	// Create seed sudoku:
-	const Sudoku = readSudoku();
+	const Sudoku = readSudoku(SudokuTracker);
 
 	// Make permutations over seed sudoku:
 	for (let i = 1; i < 10; i++)
@@ -300,8 +317,43 @@ function SwapCols() { // Sudoku[0-8][0-8]
 	}
 
 	// Write in numbers in sudoku on site:
-	writeInSudoku(Sudoku);
+	writeInSudoku(Sudoku, SudokuTracker);
 };
+
+
+
+// Single solution task: generate_task_button
+function Button_GenerateTask() { // js-sudoku-single-solution-task js-sudoku-single-solution
+	// Definitions:
+	const taskTracker = document.getElementsByClassName('js-sudoku-single-solution-task');
+	//~ const outputTracker = document.getElementsByClassName('js-output-validation')[0];
+	const inputTracker = document.getElementsByClassName('js-input-deletedCells')[0];
+
+	// Create sudoku:
+	const Sudoku = new SudokuClass( SudokuClass.seedSudoku() );  // Sudoku[0-8][0-8]
+
+	Sudoku.CrossOutSudokuCells(Number(inputTracker.value));
+
+	// Write in sudoku:
+	writeInSudoku(Sudoku.sudoku_board, taskTracker);
+};
+// Single solution task: solve_button
+function Button_solveSudoku() {
+	// Definitions:
+	const taskTracker = document.getElementsByClassName('js-sudoku-single-solution-task');
+	const solvedSudokuTracker = document.getElementsByClassName('js-sudoku-single-solution');
+	//~ const outputTracker = document.getElementsByClassName('js-output-validation')[0];
+	
+	// Create sudoku:
+	const Sudoku = new SudokuClass( readSudoku(taskTracker) );  // Sudoku[0-8][0-8]
+	
+	Sudoku.CrooksAlgorithm();
+	
+	// Write in numbers in sudoku_debug_board on site:
+	writeInSudoku(Sudoku.sudoku_board, solvedSudokuTracker);
+};
+
+
 
 // Button 5: ---- ----
 function CrossOutSudokuCells() {
@@ -339,7 +391,7 @@ function SolveSudoku() {
 // Functions:
 // 1. Read from the form sudoku.
 // 2. Write in the form sudoku.
-function readSudoku() {
+function readSudoku(problem2__inputTracker) {
 	const msg_wrong_symbols = "Symbols beside 1-9 are ignored";
 	let SudokuBoard = SudokuClass.createEmpty2D_arr(SudokuClass.emptyCell_symbol);
     for( let i = 0; i < 9; i++)
@@ -357,10 +409,11 @@ function readSudoku() {
 	return SudokuBoard;
 	};
 
-function writeInSudoku(SudokuBoard) {
+function writeInSudoku(SudokuBoard, inputTracker) {
     for( let i = 0; i < 9; i++)
 		for( let j = 0; j < 9; j++) {
-			problem2__inputTracker[i*9 + j].value = SudokuBoard[i][j];
+			inputTracker[i*9 + j].value = SudokuBoard[i][j];
+			//~ problem2__inputTracker[i*9 + j].value = SudokuBoard[i][j];
 			};
 	};
 

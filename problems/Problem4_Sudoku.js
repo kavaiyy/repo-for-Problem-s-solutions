@@ -549,13 +549,70 @@ class SudokuClass {
 
 
 
-board = SudokuClass.seedSudoku();
-const obj_x = new SudokuClass(board);
-console.log(obj_x.GenerateSingleSolutionTask(25)); // take several launches to find one.
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//~ board = SudokuClass.seedSudoku();
+//~ const obj_x = new SudokuClass(board);
+//~ console.log(obj_x.GenerateSingleSolutionTask(25)); // take several launches to find one.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//~ obj_x.CrossOutSudokuCells(10);
+//~ console.log( obj_x.getRandomSuposition()) ;
 
 
 
