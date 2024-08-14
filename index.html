@@ -380,25 +380,26 @@ function isParenthesesValid(s) {
 		<div class="">
 			<h2 class="h2-problem-description"><b class="h2-problem-description_accent-color">Problem #4.1:</b> check if either partily filled or completed sudoku is valid. Make permutations.</h2>
 			<div class="sudoku-validation__grid-container">
-				
+
 				<div class="sudoku-validation__left-block">
-					
-					<button class="sudoku-validation__button1" onclick="Button_WriteInSeedSudoku()">Write in solved sudoku</button>
-					
+					<div class="">
+						<button class="" onclick="Button_WriteInSeedSudoku()">Write in solved sudoku</button>
+					</div>	
+	
 					<div class="sudoku-validation__swap-block">
-						<button class="sudoku-validation__button" onclick="SwapCells()">Swap cells</button>
+						<button class="" onclick="SwapCells()">Swap cells</button>
 							<label>cell 1:</label>
 							<input class="js-input-swap_i1" type="text" maxlength="1" size="1" placeholder="1" pattern="[1-9]" />
 							<input class="js-input-swap_j1" type="text" maxlength="1" size="1" placeholder="1" pattern="[1-9]" />
 							<label>cell 2:</label>
 							<input class="js-input-swap_i2" type="text" maxlength="1" size="1" placeholder="9" pattern="[1-9]" />
 							<input class="js-input-swap_j2" type="text" maxlength="1" size="1" placeholder="9" pattern="[1-9]" />			
-						<button class="sudoku-validation__button" onclick="SwapRows()">Swap rows</button>
+						<button class="" onclick="SwapRows()">Swap rows</button>
 							<label>row 1:</label>
 							<input class="js-input-swap-row1" type="text" maxlength="1" size="1" placeholder="1" pattern="[1-9]" />
 							<label>row 2:</label>
 							<input class="js-input-swap-row2" type="text" maxlength="1" size="1" placeholder="2" pattern="[1-9]" />
-						<button class="sudoku-validation__button" onclick="SwapCols()">Swap columns</button>
+						<button class="" onclick="SwapCols()">Swap columns</button>
 							<label>column 1:</label>
 							<input class="js-input-swap-col1" type="text" maxlength="1" size="1" placeholder="8" pattern="[1-9]" />
 							<label>column 2:</label>
@@ -521,197 +522,197 @@ function isParenthesesValid(s) {
 				</div>
 				
 				<div class="sudoku-validation__flex-container">
-				<div class="sudoku__inputs-container">
-						<!-- row 1 -->
-						<input class="sudoku__input sudoku__i11 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i12 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i13 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i14 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i15 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i16 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i17 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i18 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i19 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<!-- row 2 -->
-						<input class="sudoku__input sudoku__i21 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i22 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i23 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i24 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i25 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i26 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i27 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i28 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i29 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<!-- row 3 -->
-						<input class="sudoku__input sudoku__i31 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i32 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i33 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i34 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i35 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i36 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i37 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i38 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i39 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<!-- row 4 -->
-						<input class="sudoku__input sudoku__i41 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i42 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i43 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i44 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i45 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i46 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i47 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i48 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i49 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<!-- row 5 -->
-						<input class="sudoku__input sudoku__i51 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i52 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i53 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i54 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i55 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i56 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i57 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i58 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i59 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<!-- row 6 -->
-						<input class="sudoku__input sudoku__i61 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i62 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i63 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i64 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i65 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i66 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i67 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i68 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i69 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<!-- row 7 -->
-						<input class="sudoku__input sudoku__i71 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i72 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i73 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i74 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i75 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i76 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i77 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i78 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i79 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<!-- row 8 -->
-						<input class="sudoku__input sudoku__i81 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i82 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i83 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i84 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i85 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i86 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i87 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i88 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i89 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<!-- row 9 -->
-						<input class="sudoku__input sudoku__i91 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i92 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i93 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i94 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i95 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i96 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i97 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i98 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i99 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-					</div>
-				<div class="sudoku__inputs-container">
-						<!-- row 1 -->
-						<input class="sudoku__input sudoku__i11 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i12 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i13 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i14 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i15 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i16 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i17 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i18 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i19 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<!-- row 2 -->
-						<input class="sudoku__input sudoku__i21 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i22 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i23 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i24 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i25 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i26 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i27 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i28 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i29 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<!-- row 3 -->
-						<input class="sudoku__input sudoku__i31 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i32 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i33 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i34 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i35 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i36 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i37 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i38 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i39 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<!-- row 4 -->
-						<input class="sudoku__input sudoku__i41 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i42 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i43 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i44 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i45 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i46 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i47 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i48 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i49 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<!-- row 5 -->
-						<input class="sudoku__input sudoku__i51 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i52 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i53 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i54 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i55 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i56 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i57 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i58 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i59 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<!-- row 6 -->
-						<input class="sudoku__input sudoku__i61 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i62 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i63 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i64 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i65 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i66 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i67 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i68 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i69 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<!-- row 7 -->
-						<input class="sudoku__input sudoku__i71 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i72 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i73 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i74 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i75 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i76 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i77 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i78 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i79 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<!-- row 8 -->
-						<input class="sudoku__input sudoku__i81 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i82 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i83 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i84 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i85 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i86 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i87 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i88 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i89 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<!-- row 9 -->
-						<input class="sudoku__input sudoku__i91 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i92 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i93 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i94 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i95 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i96 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i97 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i98 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-						<input class="sudoku__input sudoku__i99 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
-					</div>
+					<div class="sudoku__inputs-container">
+							<!-- row 1 -->
+							<input class="sudoku__input sudoku__i11 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i12 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i13 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i14 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i15 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i16 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i17 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i18 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i19 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<!-- row 2 -->
+							<input class="sudoku__input sudoku__i21 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i22 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i23 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i24 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i25 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i26 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i27 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i28 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i29 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<!-- row 3 -->
+							<input class="sudoku__input sudoku__i31 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i32 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i33 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i34 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i35 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i36 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i37 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i38 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i39 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<!-- row 4 -->
+							<input class="sudoku__input sudoku__i41 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i42 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i43 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i44 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i45 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i46 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i47 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i48 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i49 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<!-- row 5 -->
+							<input class="sudoku__input sudoku__i51 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i52 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i53 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i54 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i55 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i56 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i57 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i58 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i59 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<!-- row 6 -->
+							<input class="sudoku__input sudoku__i61 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i62 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i63 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i64 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i65 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i66 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i67 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i68 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i69 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<!-- row 7 -->
+							<input class="sudoku__input sudoku__i71 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i72 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i73 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i74 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i75 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i76 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i77 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i78 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i79 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<!-- row 8 -->
+							<input class="sudoku__input sudoku__i81 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i82 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i83 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i84 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i85 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i86 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i87 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i88 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i89 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<!-- row 9 -->
+							<input class="sudoku__input sudoku__i91 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i92 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i93 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i94 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i95 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i96 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i97 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i98 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							<input class="sudoku__input sudoku__i99 js-sudoku-single-solution-task" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+						</div>
+						<div class="sudoku__inputs-container">
+								<!-- row 1 -->
+								<input class="sudoku__input sudoku__i11 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i12 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i13 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i14 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i15 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i16 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i17 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i18 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i19 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<!-- row 2 -->
+								<input class="sudoku__input sudoku__i21 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i22 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i23 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i24 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i25 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i26 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i27 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i28 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i29 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<!-- row 3 -->
+								<input class="sudoku__input sudoku__i31 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i32 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i33 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i34 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i35 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i36 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i37 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i38 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i39 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<!-- row 4 -->
+								<input class="sudoku__input sudoku__i41 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i42 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i43 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i44 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i45 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i46 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i47 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i48 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i49 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<!-- row 5 -->
+								<input class="sudoku__input sudoku__i51 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i52 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i53 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i54 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i55 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i56 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i57 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i58 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i59 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<!-- row 6 -->
+								<input class="sudoku__input sudoku__i61 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i62 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i63 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i64 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i65 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i66 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i67 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i68 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i69 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<!-- row 7 -->
+								<input class="sudoku__input sudoku__i71 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i72 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i73 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i74 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i75 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i76 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i77 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i78 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i79 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<!-- row 8 -->
+								<input class="sudoku__input sudoku__i81 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i82 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i83 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i84 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i85 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i86 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i87 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i88 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i89 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<!-- row 9 -->
+								<input class="sudoku__input sudoku__i91 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i92 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i93 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i94 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i95 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i96 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i97 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i98 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+								<input class="sudoku__input sudoku__i99 js-sudoku-single-solution" type="text" maxlength="1" size="1" placeholder="" pattern="[1-9]" />
+							</div>
 					</div>
 					
 					<div class="sudoku-validation__results">
-							<button class="" onclick="Button_Clear()">Clear</button>
+							<button class="" onclick="Button_clearSudokuBoard()">Clear</button>
 							<button class="" onclick="Button_sudokuValidation()">Validation</button>
 							<h3 class="output__h3"> Here goes the result: </h3>
-							<p class="sudoku-validation__output-p output-result_p js-sudoku-validation_output"> poem </p>
+							<p class="sudoku-validation__output-p output-result_p js-sudoku-generation_output"> poem </p>
 					</div>
 					
 				</div>
@@ -1124,13 +1125,6 @@ And begin again.
             <input class="sudoku__input sudoku__i11" type="text" maxlength="1" size="1" placeholder="" />
         </div> -->
     </section>
-
-	<section class="_">
-		<button class="_" onclick="EventListener()">Button name</button>
-		<h3>_</h3>
-		<p>Teksti_</p>
-	</section>
-
 
 
 

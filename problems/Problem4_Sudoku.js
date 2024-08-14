@@ -140,6 +140,13 @@ class SudokuClass {
 		board[i2][j2] = str_buff;
 		return 0;
 	};
+	static clear_board(board) {
+		for (let i = 0; i < 9; i++)
+			for (let j = 0; j < 9; j++)
+			{
+				board[i][j] = SudokuClass.emptyCell_symbol;
+			}
+	};
 	#Create_SudokuSets() {
 		const sudokuSets = SudokuClass.createEmpty2D_arr();
 		for (let i = 0; i < 9; i++)

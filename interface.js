@@ -353,6 +353,32 @@ function Button_solveSudoku() {
 	writeInSudoku(Sudoku.sudoku_board, solvedSudokuTracker);
 };
 
+// Button 1: Validation of sudoku
+function Button_sudokuValidation() {
+	// Definitions:
+	const inputTracker = document.getElementsByClassName('js-sudoku-single-solution');
+	const outputTracker = document.getElementsByClassName('js-sudoku-generation_output')[0];
+	ValidateSudoku(inputTracker, outputTracker);
+};
+
+function Button_clearSudokuBoard() {
+	// Definitions:
+	const inputTracker = document.getElementsByClassName('js-sudoku-single-solution');
+	const outputTracker = document.getElementsByClassName('js-sudoku-generation_output')[0];
+	const emptCell_buff = SudokuClass.emptyCell_symbol;
+	SudokuClass.setEmptyCell_symbol('');
+	
+	// Read sudoku:
+	const Sudoku = new SudokuClass( readSudoku(inputTracker) );  // Sudoku[0-8][0-8]
+	// Change sudoku:
+	SudokuClass.clear_board(Sudoku.sudoku_board);
+	// Write in result:
+	writeInSudoku(Sudoku.sudoku_board, inputTracker);
+	
+	SudokuClass.setEmptyCell_symbol(emptCell_buff);
+};
+
+
 
 
 // Button 5: ---- ----
@@ -385,6 +411,23 @@ function SolveSudoku() {
 		// Write in numbers in sudoku_debug_board on site:
 		WriteInDebugSudoku(Sudoku);
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
